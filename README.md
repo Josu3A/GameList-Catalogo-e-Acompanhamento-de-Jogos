@@ -1,1 +1,1 @@
-# GameList-Cat-logo-e-Acompanhamento-de-Jogos
+# GameList-Catalogo-e-Acompanhamento-de-Jogos
