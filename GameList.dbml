@@ -1,0 +1,280 @@
+// ============================================================
+// GameList — Esquema de Dados (DBML)
+// Cole em https://dbdiagram.io para gerar o diagrama visual.
+// ============================================================
+
+Project GameList {
+  database_type: 'PostgreSQL'
+  Note: '''
+    Catálogo e acompanhamento de jogos (estilo MyAnimeList).
+    Núcleo (MVP): users, games, user_games.
+    Extensões: catálogo normalizado, integração Steam, rede social.
+  '''
+}
+
+// ------------------------------------------------------------
+// Enums
+// ------------------------------------------------------------
+
+Enum tipo_usuario {
+  comum
+  admin
+}
+
+Enum status_publicacao {
+  rascunho
+  publicado
+}
+
+Enum status_lista {
+  jogando
+  completo
+  quero_jogar
+  pausado
+  abandonado
+}
+
+Enum fonte_registro {
+  manual
+  steam_sync
+}
+
+Enum status_amizade {
+  pendente
+  aceito
+}
+
+Enum tipo_notificacao {
+  pedido_amizade
+  amizade_aceita
+  review_curtida
+}
+
+// ------------------------------------------------------------
+// 1. Núcleo (MVP)
+// ------------------------------------------------------------
+
+Table users {
+  id bigint [pk, increment]
+  nome varchar(100) [not null]
+  email varchar(255) [not null, unique]
+  senha_hash varchar(255) [not null, note: 'Nunca senha em texto puro']
+  tipo_usuario tipo_usuario [not null, default: 'comum']
+  bio text [null]
+  avatar_url varchar(500) [null]
+  perfil_publico boolean [not null, default: true]
+  steam_id varchar(20) [null, unique, note: 'SteamID64 (extensão futura)']
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+
+  Note: 'Entidade de usuário. tipo_usuario define o nível de acesso.'
+}
+
+Table games {
+  id bigint [pk, increment]
+  titulo varchar(200) [not null]
+  capa_url varchar(500) [null]
+  banner_url varchar(500) [null, note: 'header_image da Steam']
+  ano_lancamento integer [null]
+  sinopse text [null]
+  status_publicacao status_publicacao [not null, default: 'rascunho']
+  steam_appid integer [null, unique, note: 'Chave de casamento com a Steam']
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+
+  Note: 'Catálogo central. CRUD restrito a admin; leitura pública.'
+}
+
+Table user_games {
+  id bigint [pk, increment]
+  user_id bigint [not null, ref: > users.id]
+  game_id bigint [not null, ref: > games.id]
+  status status_lista [not null]
+  nota decimal(3,1) [null, note: 'CHECK 0..10']
+  horas_jogadas decimal(7,1) [not null, default: 0, note: 'CHECK >= 0']
+  platinado boolean [not null, default: false]
+  data_inicio date [null]
+  data_fim date [null]
+  review text [null, note: 'Texto opcional da review; curtidas ficam em review_likes']
+  fonte fonte_registro [not null, default: 'manual']
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    (user_id, game_id) [unique, name: 'uq_user_game']
+    user_id [name: 'idx_user_games_user']
+    game_id [name: 'idx_user_games_game']
+  }
+
+  Note: 'Lista pessoal (N:N entre users e games). status e platinado são independentes.'
+}
+
+// ------------------------------------------------------------
+// 2. Catálogo normalizado (N:N)
+// ------------------------------------------------------------
+
+Table genres {
+  id bigint [pk, increment]
+  nome varchar(100) [not null, unique]
+}
+
+Table platforms {
+  id bigint [pk, increment]
+  nome varchar(100) [not null, unique]
+}
+
+Table developers {
+  id bigint [pk, increment]
+  nome varchar(150) [not null, unique]
+}
+
+Table publishers {
+  id bigint [pk, increment]
+  nome varchar(150) [not null, unique]
+}
+
+Table game_genres {
+  game_id bigint [not null, ref: > games.id]
+  genre_id bigint [not null, ref: > genres.id]
+
+  indexes {
+    (game_id, genre_id) [pk]
+  }
+}
+
+Table game_platforms {
+  game_id bigint [not null, ref: > games.id]
+  platform_id bigint [not null, ref: > platforms.id]
+
+  indexes {
+    (game_id, platform_id) [pk]
+  }
+}
+
+Table game_developers {
+  game_id bigint [not null, ref: > games.id]
+  developer_id bigint [not null, ref: > developers.id]
+
+  indexes {
+    (game_id, developer_id) [pk]
+  }
+}
+
+Table game_publishers {
+  game_id bigint [not null, ref: > games.id]
+  publisher_id bigint [not null, ref: > publishers.id]
+
+  indexes {
+    (game_id, publisher_id) [pk]
+  }
+}
+
+// ------------------------------------------------------------
+// 3. Integração Steam (extensão futura)
+// ------------------------------------------------------------
+
+Table achievements {
+  id bigint [pk, increment]
+  game_id bigint [not null, ref: > games.id]
+  steam_apiname varchar(200) [not null, note: 'Nome interno da conquista na Steam']
+  nome varchar(200) [not null]
+  descricao text [null]
+  icon_url varchar(500) [null]
+
+  indexes {
+    (game_id, steam_apiname) [unique, name: 'uq_game_achievement']
+  }
+
+  Note: 'Esquema de conquistas de um jogo (GetSchemaForGame).'
+}
+
+Table user_achievements {
+  id bigint [pk, increment]
+  user_id bigint [not null, ref: > users.id]
+  achievement_id bigint [not null, ref: > achievements.id]
+  desbloqueada_em timestamptz [null]
+
+  indexes {
+    (user_id, achievement_id) [unique, name: 'uq_user_achievement']
+  }
+
+  Note: 'Conquistas desbloqueadas por um usuário (GetPlayerAchievements).'
+}
+
+// ------------------------------------------------------------
+// 4. Rede social (extensão futura)
+// ------------------------------------------------------------
+
+Table friendships {
+  id bigint [pk, increment]
+  user_id bigint [not null, ref: > users.id, note: 'Quem solicitou']
+  friend_id bigint [not null, ref: > users.id, note: 'Quem recebeu']
+  status status_amizade [not null, default: 'pendente']
+  created_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    (user_id, friend_id) [unique, name: 'uq_friendship']
+    friend_id [name: 'idx_friendships_friend']
+  }
+
+  Note: 'Auto-relacionamento em users. CHECK (user_id <> friend_id) no banco.'
+}
+
+Table review_likes {
+  user_game_id bigint [not null, ref: > user_games.id, note: 'A review curtida']
+  user_id bigint [not null, ref: > users.id, note: 'Quem curtiu']
+  created_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    (user_game_id, user_id) [pk]
+    user_id [name: 'idx_review_likes_user']
+  }
+
+  Note: 'Curtidas em reviews (N:N). A review é a linha de user_games que tem review não-nulo.'
+}
+
+Table lists {
+  id bigint [pk, increment]
+  user_id bigint [not null, ref: > users.id]
+  nome varchar(150) [not null]
+  descricao text [null]
+  publica boolean [not null, default: true]
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    (user_id, nome) [unique, name: 'uq_list_user_nome']
+  }
+
+  Note: 'Listas/coleções customizadas do usuário (ex.: "Top 10 RPGs").'
+}
+
+Table list_items {
+  list_id bigint [not null, ref: > lists.id]
+  game_id bigint [not null, ref: > games.id]
+  ordem integer [null, note: 'Posição opcional na lista']
+  added_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    (list_id, game_id) [pk]
+  }
+
+  Note: 'Jogos dentro de uma lista customizada (N:N entre lists e games).'
+}
+
+Table notifications {
+  id bigint [pk, increment]
+  user_id bigint [not null, ref: > users.id, note: 'Destinatário']
+  actor_id bigint [null, ref: > users.id, note: 'Quem gerou o evento']
+  tipo tipo_notificacao [not null]
+  friendship_id bigint [null, ref: > friendships.id, note: 'Preenchido em pedido_amizade/amizade_aceita']
+  user_game_id bigint [null, ref: > user_games.id, note: 'Preenchido em review_curtida']
+  lida boolean [not null, default: false]
+  created_at timestamptz [not null, default: `now()`]
+
+  indexes {
+    (user_id, lida) [name: 'idx_notifications_user_lida']
+  }
+
+  Note: 'Notificações do usuário. FKs separadas + CHECK garante exatamente uma referência — ver ESQUEMA_DADOS §4.4.'
+}
