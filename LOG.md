@@ -5,6 +5,68 @@
 
 ---
 
+## 2026-07-11 — Backend social (endpoints da extensão de rede social)
+
+### Objetivo
+
+Ativar a parte social ([FRONTEND_TELAS.md](FRONTEND_TELAS.md) §3): os modelos de
+`social/` já existiam e estavam migrados, mas faltavam **endpoints, serializers e
+permissões** para amigos, reviews+curtidas, listas customizadas e notificações, além de
+enriquecer o perfil público. Nenhuma mudança de schema/migração — só a camada de API.
+
+### O que foi criado ([backend/social/](backend/social/))
+
+- **`permissions.py`** — `IsFriendshipParticipant` (só os dois envolvidos veem/alteram a
+  amizade) e `IsListOwnerOrReadOnly` (só o dono altera a lista).
+- **`serializers.py`** — `UserSummarySerializer` reutilizável; `FriendshipSerializer`
+  (bloqueia auto-pedido e pedido duplicado/invertido, leitura simétrica); `ReviewSerializer`
+  (sobre `library.UserGame`, com `likes_count`/`liked_by_me` de annotate); `ListSerializer`/
+  `ListDetailSerializer` (`UniqueTogetherValidator(user, nome)`, itens ordenados por `ordem`);
+  `NotificationSerializer` (bloco `referencia` conforme o `tipo`).
+- **`views.py`** —
+  - `FriendshipViewSet`: `POST /api/friendships/` (pedido → notificação `pedido_amizade`),
+    `GET ?estado=amigos|recebidos|enviados`, `POST /{id}/aceitar/` (→ `amizade_aceita`),
+    `DELETE /{id}/` (recusar/cancelar/desfazer).
+  - `ReviewViewSet` (read-only + ação): `GET /api/reviews/?game=<id>` (feed/por jogo,
+    respeitando visibilidade de perfil), `POST|DELETE /{user_game_id}/like/`
+    (idempotente; curtir gera `review_curtida`, exceto na própria review).
+  - `ListViewSet`: CRUD do dono + `POST /{id}/items/`, `DELETE /{id}/items/{game_id}/`,
+    `PATCH /{id}/reorder/`; `GET /api/lists/?user=<id>` lê as públicas de alguém.
+  - `NotificationViewSet` (read-only + ações): `GET /api/notifications/`,
+    `GET /nao-lidas/` (badge), `POST /{id}/marcar-lida/`, `POST /marcar-todas-lidas/`.
+- **`urls.py`/`admin.py`** — router DRF ligado em `config/urls.py`; admin de `Friendship`,
+  `List` e `Notification`.
+- **Perfil enriquecido** — `GET /api/profiles/<id>/` passou a devolver `amizade`
+  (`eu`/`amigos`/`pedido_enviado`/`pedido_recebido`/`nenhum`/`null`) via
+  `Friendship.estado_entre()` e `listas_publicas` do dono.
+
+### Decisões conscientes
+
+| Decisão | Escolha | Motivo |
+|---|---|---|
+| Reviews | endpoint que **lê `user_games`** com `review` preenchida | a review é coluna de `user_games` (ESQUEMA §1.3); não há entidade própria |
+| Notificações | criadas **inline nas ações**, dentro de `transaction.atomic()` | respeita o `CHECK` de referência exatamente-uma (§4.4) e mantém o efeito colateral atômico com a ação |
+| Itens de lista | geridos por **actions** (`items`/`reorder`), não por ViewSet próprio | `ListItem`/`ReviewLike` têm PK composta (`CompositePrimaryKey`) — router aninhado fica incômodo |
+| Admin de PK composta | `ReviewLike`/`ListItem` **fora do Django Admin** | limitação do Django: modelo com `CompositePrimaryKey` não pode ser registrado nem usado como inline; geridos pela API |
+| Amizade simétrica | helper `Friendship.estado_entre()` no modelo | mesma lógica reaproveitada pela validação do pedido e pelo perfil |
+
+### Verificação executada
+
+1. **Migrações**: `makemigrations --check --dry-run` → **No changes detected** (camada só de API).
+2. **Testes**: `manage.py test social` → **26/26 OK**; `manage.py test` (suíte completa) →
+   **48/48 OK**, cobrindo pedido/aceite/recusa + notificações, leitura simétrica, visibilidade
+   de review privada, curtida idempotente + contagem/flag, CRUD de lista só do dono, nome
+   duplicado, add/remover/reordenar itens, listas públicas x privadas, contador de não lidas,
+   marcar lida, e o `amizade`/`listas_publicas` do perfil.
+
+### Estado ao final
+
+- Endpoints da §3 do [FRONTEND_TELAS.md](FRONTEND_TELAS.md) implementados e testados sobre os
+  modelos já existentes; nada de schema mudou.
+- Steam (autopreenchimento + sync) segue como trilha separada (CONTEXTO §6).
+
+---
+
 ## 2026-07-10 — Backend Django + DRF (MVP completo)
 
 ### Objetivo

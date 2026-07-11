@@ -44,6 +44,36 @@ class Friendship(models.Model):
     def __str__(self):
         return f'{self.user.nome} → {self.friend.nome} ({self.status})'
 
+    @classmethod
+    def entre(cls, a, b):
+        """A amizade (em qualquer direção) entre dois usuários, ou None.
+
+        A leitura é simétrica: uma linha aceita vale para os dois lados
+        (FRONTEND_TELAS §3.1).
+        """
+        return cls.objects.filter(
+            models.Q(user=a, friend=b) | models.Q(user=b, friend=a),
+        ).first()
+
+    @classmethod
+    def estado_entre(cls, viewer, alvo):
+        """Estado da relação de `viewer` em relação a `alvo`, para o perfil.
+
+        Retorna 'eu' / 'amigos' / 'pedido_enviado' / 'pedido_recebido' /
+        'nenhum', ou None se `viewer` for anônimo.
+        """
+        if viewer is None or not viewer.is_authenticated:
+            return None
+        if viewer == alvo:
+            return 'eu'
+        fs = cls.entre(viewer, alvo)
+        if fs is None:
+            return 'nenhum'
+        if fs.status == cls.Status.ACEITO:
+            return 'amigos'
+        # pendente: quem é o solicitante define o sentido do pedido
+        return 'pedido_enviado' if fs.user_id == viewer.id else 'pedido_recebido'
+
 
 class ReviewLike(models.Model):
     """Curtida em review. A review é a linha de user_games com review não-nulo."""

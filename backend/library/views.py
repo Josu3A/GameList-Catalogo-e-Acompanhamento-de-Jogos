@@ -1,9 +1,13 @@
 from django.contrib.auth import get_user_model
+from django.db.models import Count
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 from rest_framework import permissions, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
+from social.models import Friendship, List
+from social.serializers import ListSerializer
 
 from .models import UserGame
 from .serializers import UserGamePublicSerializer, UserGameSerializer
@@ -35,13 +39,21 @@ class ProfileView(APIView):
             # Perfil privado não revela nem a própria existência
             raise Http404
         jogos = UserGame.objects.filter(user=user).select_related('game')
+        listas_publicas = (
+            List.objects.filter(user=user, publica=True)
+            .annotate(total_itens=Count('items'))
+            .order_by('-updated_at')
+        )
         return Response({
             'id': user.id,
             'nome': user.nome,
             'bio': user.bio,
             'avatar_url': user.avatar_url,
+            # Estado da amizade em relação a quem visita (alimenta o botão do perfil).
+            'amizade': Friendship.estado_entre(request.user, user),
             'platinas': UserGamePublicSerializer(
                 jogos.filter(platinado=True), many=True,
             ).data,
             'jogos': UserGamePublicSerializer(jogos, many=True).data,
+            'listas_publicas': ListSerializer(listas_publicas, many=True).data,
         })
