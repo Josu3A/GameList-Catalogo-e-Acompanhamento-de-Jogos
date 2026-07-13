@@ -143,6 +143,17 @@ CORS_ALLOW_CREDENTIALS = True
 CSRF_TRUSTED_ORIGINS = CORS_ALLOWED_ORIGINS
 
 
+# Integração com a Steam (ver CONTEXTO_PROJETO §6)
+# - STEAM_API_KEY: Steam Web API Key (GetOwnedGames/GetSchemaForGame/
+#   GetPlayerAchievements/GetPlayerSummaries). Fica só aqui, nunca no frontend.
+#   O login OpenID e o autofill da loja (Storefront) NÃO dependem dela.
+# - FRONTEND_URL: destino dos redirects pós-login OpenID (SPA React).
+
+STEAM_API_KEY = os.environ.get('STEAM_API_KEY', '')
+
+FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://localhost:5173')
+
+
 # Internationalization
 
 LANGUAGE_CODE = 'pt-br'
@@ -157,6 +168,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = 'static/'
+
+# Media (uploads dos usuários — ex.: avatares de perfil).
+# A coluna avatar_url guarda só o caminho relativo (ex.: avatars/<uuid>.jpg);
+# em DEBUG o próprio Django serve os arquivos a partir de MEDIA_ROOT (ver config/urls.py).
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# Teto de upload em memória (2,5 MB) — o avatar é validado em 2 MB no serializer.
+DATA_UPLOAD_MAX_MEMORY_SIZE = int(2.5 * 1024 * 1024)
+FILE_UPLOAD_MAX_MEMORY_SIZE = int(2.5 * 1024 * 1024)
 
 # Default primary key field type
 

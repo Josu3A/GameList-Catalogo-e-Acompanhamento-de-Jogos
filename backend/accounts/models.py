@@ -1,6 +1,23 @@
 """Usuário customizado — tabela `users` do esquema (ESQUEMA_DADOS §1.1)."""
+import os
+import uuid
+
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
+from django.core.validators import FileExtensionValidator
 from django.db import models
+
+# Extensões de imagem aceitas no upload de avatar.
+AVATAR_ALLOWED_EXTENSIONS = ['jpg', 'jpeg', 'png', 'webp', 'gif']
+
+
+def avatar_upload_to(instance, filename):
+    """Nome de arquivo único (uuid) preservando a extensão.
+
+    O nome original do usuário não é reaproveitado: o caminho gravado fica
+    opaco (`avatars/<uuid>.<ext>`) — o usuário nunca vê o caminho, só a foto.
+    """
+    ext = os.path.splitext(filename)[1].lower() or '.jpg'
+    return f'avatars/{uuid.uuid4().hex}{ext}'
 
 
 class UserManager(BaseUserManager):
@@ -34,7 +51,17 @@ class User(AbstractBaseUser):
         default=TipoUsuario.COMUM,
     )
     bio = models.TextField(blank=True, null=True)
-    avatar_url = models.URLField(max_length=500, blank=True, null=True)
+    # Avatar por upload. A coluna `avatar_url` (VARCHAR 500 do esquema) passa a
+    # guardar o CAMINHO relativo do arquivo (ex.: avatars/<uuid>.jpg); a API o
+    # serializa como URL de mídia. O usuário vê a foto, nunca o caminho.
+    avatar_url = models.ImageField(
+        'avatar',
+        upload_to=avatar_upload_to,
+        max_length=500,
+        blank=True,
+        null=True,
+        validators=[FileExtensionValidator(AVATAR_ALLOWED_EXTENSIONS)],
+    )
     perfil_publico = models.BooleanField(default=True)
     steam_id = models.CharField(max_length=20, unique=True, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)

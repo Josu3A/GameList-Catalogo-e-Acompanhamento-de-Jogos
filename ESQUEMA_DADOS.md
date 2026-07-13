@@ -40,11 +40,18 @@ O modelo se organiza em quatro grupos:
 | senha_hash | VARCHAR(255) | `NOT NULL` — nunca senha em texto puro |
 | tipo_usuario | VARCHAR(20) | `NOT NULL CHECK (tipo_usuario IN ('comum','admin'))` |
 | bio | TEXT | nullable |
-| avatar_url | VARCHAR(500) | nullable |
+| avatar_url | VARCHAR(500) | nullable — **caminho** do avatar enviado por upload (ex.: `avatars/<uuid>.jpg`), servido como mídia; ver nota abaixo |
 | perfil_publico | BOOLEAN | `NOT NULL DEFAULT true` |
 | steam_id | VARCHAR(20) | nullable, `UNIQUE` — SteamID64 (extensão futura) |
 | created_at | TIMESTAMPTZ | `NOT NULL DEFAULT now()` |
 | updated_at | TIMESTAMPTZ | `NOT NULL DEFAULT now()` |
+
+> **`avatar_url` — upload (não URL externa):** o avatar é enviado por **upload** na
+> edição de perfil. O backend guarda o **caminho relativo** do arquivo nesta coluna
+> (ex.: `avatars/<uuid>.jpg`) e a API o serializa como **URL de mídia** — o usuário vê a
+> foto, nunca o caminho. No Django é um `ImageField` (mesma coluna `VARCHAR(500)`, sem
+> mudança de DDL). Limites do upload: JPG/PNG/WEBP/GIF, até 2 MB. Ao vincular a Steam, o
+> avatar do perfil Steam é **baixado** e salvo também como mídia local (ver LOG.md 2026-07-13).
 
 ### 1.2 `games`
 

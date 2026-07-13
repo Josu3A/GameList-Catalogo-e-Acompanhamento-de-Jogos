@@ -1,6 +1,8 @@
 """Catálogo central de jogos (ESQUEMA_DADOS §1.2, §2 e §3.1)."""
 from django.db import models
 
+from . import steam
+
 
 class Genre(models.Model):
     nome = models.CharField(max_length=100, unique=True)
@@ -98,6 +100,20 @@ class Game(models.Model):
 
     def __str__(self):
         return self.titulo
+
+    @property
+    def capa_vertical_url(self):
+        """Capa vertical (600x900) derivada do appid; cai para `capa_url`.
+
+        Jogos do catálogo vêm da Steam e têm appid, então exibimos a capa
+        vertical da biblioteca em vez do capsule horizontal (que recorta feio).
+        """
+        return steam.library_cover_url(self.steam_appid) or self.capa_url
+
+    @property
+    def banner_hero_url(self):
+        """Fundo largo derivado do appid; cai para `banner_url`."""
+        return steam.library_hero_url(self.steam_appid) or self.banner_url
 
 
 class Achievement(models.Model):

@@ -4,3 +4,5 @@ django-filter~=25.1
 django-cors-headers~=4.7
 psycopg[binary]~=3.2
 python-dotenv~=1.1
+requests~=2.32
+Pillow~=11.0

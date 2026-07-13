@@ -1,13 +1,18 @@
 """Critérios de aceitação da lista pessoal e do perfil (CONTEXTO_PROJETO §4)."""
+from unittest.mock import patch
+
 from django.contrib.auth import get_user_model
+from django.test import override_settings
 from rest_framework import status
 from rest_framework.test import APITestCase
 
-from catalog.models import Game
+from catalog.models import Achievement, Game
 
-from .models import UserGame
+from .models import UserAchievement, UserGame
 
 User = get_user_model()
+
+STEAM_ID = '76561198000000009'
 
 
 class MinhaListaTests(APITestCase):
@@ -142,3 +147,88 @@ class PerfilPublicoTests(APITestCase):
         self.client.force_authenticate(self.recluso)
         resp = self.client.get(f'/api/profiles/{self.recluso.id}/')
         self.assertEqual(resp.status_code, status.HTTP_200_OK)
+
+
+@override_settings(STEAM_API_KEY='chave-de-teste')
+class SteamSyncTests(APITestCase):
+    """Sync de biblioteca e conquistas (casamento por steam_appid)."""
+
+    def setUp(self):
+        self.ana = User.objects.create_user(
+            email='ana@example.com', nome='Ana', password='senha-forte-123',
+            steam_id=STEAM_ID,
+        )
+        self.hades = Game.objects.create(
+            titulo='Hades', steam_appid=1145360,
+            status_publicacao=Game.StatusPublicacao.PUBLICADO,
+        )
+
+    def test_sync_exige_steam_vinculada(self):
+        self.ana.steam_id = None
+        self.ana.save(update_fields=['steam_id'])
+        self.client.force_authenticate(self.ana)
+        resp = self.client.post('/api/my-games/steam-sync/')
+        self.assertEqual(resp.status_code, status.HTTP_400_BAD_REQUEST)
+
+    @override_settings(STEAM_API_KEY='')
+    def test_sync_sem_chave_no_servidor(self):
+        self.client.force_authenticate(self.ana)
+        resp = self.client.post('/api/my-games/steam-sync/')
+        self.assertEqual(resp.status_code, status.HTTP_503_SERVICE_UNAVAILABLE)
+
+    @patch('library.views.steam.get_owned_games')
+    def test_sync_cria_casando_por_appid_e_ignora_fora_do_catalogo(self, owned):
+        owned.return_value = [
+            {'appid': 1145360, 'name': 'Hades', 'playtime_forever': 120},
+            {'appid': 999999, 'name': 'Desconhecido', 'playtime_forever': 0},
+        ]
+        self.client.force_authenticate(self.ana)
+        resp = self.client.post('/api/my-games/steam-sync/')
+        self.assertEqual(resp.status_code, status.HTTP_200_OK)
+        self.assertEqual(resp.data, {
+            'criados': 1, 'atualizados': 0, 'ignorados_sem_catalogo': 1,
+        })
+        ug = UserGame.objects.get(user=self.ana, game=self.hades)
+        self.assertEqual(ug.fonte, UserGame.Fonte.STEAM_SYNC)
+        self.assertEqual(float(ug.horas_jogadas), 2.0)
+
+        # Segunda passada só atualiza as horas (fonte steam_sync).
+        owned.return_value[0]['playtime_forever'] = 180
+        resp2 = self.client.post('/api/my-games/steam-sync/')
+        self.assertEqual(resp2.data['atualizados'], 1)
+        ug.refresh_from_db()
+        self.assertEqual(float(ug.horas_jogadas), 3.0)
+
+    @patch('library.views.steam.get_player_achievements')
+    @patch('library.views.steam.get_schema_for_game')
+    def test_achievements_100_pct_sugere_platinado(self, schema, player):
+        UserGame.objects.create(
+            user=self.ana, game=self.hades, status=UserGame.Status.COMPLETO,
+        )
+        schema.return_value = [
+            {'steam_apiname': 'A', 'nome': 'Conquista A', 'descricao': None, 'icon_url': None},
+            {'steam_apiname': 'B', 'nome': 'Conquista B', 'descricao': None, 'icon_url': None},
+        ]
+        player.return_value = [
+            {'apiname': 'A', 'achieved': True, 'unlocktime': 1600000000},
+            {'apiname': 'B', 'achieved': True, 'unlocktime': 0},
+        ]
+        self.client.force_authenticate(self.ana)
+        resp = self.client.post('/api/my-games/steam-achievements/', {
+            'game_id': self.hades.id,
+        })
+        self.assertEqual(resp.status_code, status.HTTP_200_OK)
+        self.assertEqual(resp.data, {
+            'total': 2, 'desbloqueadas': 2, 'percent': 100, 'platinado': True,
+        })
+        self.assertEqual(Achievement.objects.filter(game=self.hades).count(), 2)
+        self.assertEqual(UserAchievement.objects.filter(user=self.ana).count(), 2)
+        ug = UserGame.objects.get(user=self.ana, game=self.hades)
+        self.assertTrue(ug.platinado)
+
+    def test_achievements_jogo_fora_da_lista_404(self):
+        self.client.force_authenticate(self.ana)
+        resp = self.client.post('/api/my-games/steam-achievements/', {
+            'game_id': self.hades.id,
+        })
+        self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)

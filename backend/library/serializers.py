@@ -9,9 +9,12 @@ from .models import UserGame
 class GameSummarySerializer(serializers.ModelSerializer):
     """Resumo do jogo para aparecer dentro da lista pessoal/perfil."""
 
+    # Capa vertical (biblioteca Steam) derivada do appid; cai para capa_url.
+    capa_vertical_url = serializers.ReadOnlyField()
+
     class Meta:
         model = Game
-        fields = ('id', 'titulo', 'capa_url', 'ano_lancamento')
+        fields = ('id', 'titulo', 'capa_url', 'capa_vertical_url', 'ano_lancamento')
 
 
 class UserGameSerializer(serializers.ModelSerializer):

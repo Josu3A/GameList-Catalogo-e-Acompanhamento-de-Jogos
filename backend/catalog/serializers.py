@@ -28,6 +28,10 @@ class PublisherSerializer(serializers.ModelSerializer):
 
 
 class GameSerializer(serializers.ModelSerializer):
+    # Capas derivadas do appid (vertical/fundo) — só leitura; a edição continua
+    # usando capa_url/banner_url brutos.
+    capa_vertical_url = serializers.ReadOnlyField()
+    banner_hero_url = serializers.ReadOnlyField()
     # Leitura aninhada (nomes) + escrita por lista de IDs (*_ids).
     genres = GenreSerializer(many=True, read_only=True)
     platforms = PlatformSerializer(many=True, read_only=True)
@@ -54,7 +58,8 @@ class GameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Game
         fields = (
-            'id', 'titulo', 'capa_url', 'banner_url', 'ano_lancamento', 'sinopse',
+            'id', 'titulo', 'capa_url', 'banner_url',
+            'capa_vertical_url', 'banner_hero_url', 'ano_lancamento', 'sinopse',
             'status_publicacao', 'steam_appid',
             'genres', 'platforms', 'developers', 'publishers',
             'genre_ids', 'platform_ids', 'developer_ids', 'publisher_ids',
