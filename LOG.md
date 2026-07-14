@@ -5,6 +5,75 @@
 
 ---
 
+## 2026-07-13 — 100 jogos famosos da Steam no catálogo + migração para o seed (offline)
+
+### Objetivo
+
+Preencher o catálogo com os ~100 jogos mais famosos da Steam **e** deixar isso no `seed`,
+para o banco já nascer com esse catálogo ao inicializar — **sem depender da rede** na
+inicialização (a Storefront tem limite de taxa e ~2 min de latência para 100 chamadas).
+
+### O que mudou
+
+- **Comando live** [seed_steam_top.py](backend/catalog/management/commands/seed_steam_top.py)
+  (+ `__init__.py` do pacote): lista fixa de **100 AppIDs** famosos (deduplicada); para cada um
+  chama `catalog.steam.fetch_appdetails` (Storefront, sem chave), resolve as taxonomias por
+  `get_or_create` e faz `update_or_create` do `Game` como **publicado**. Idempotente (casa por
+  `steam_appid`). Flags: `--limit`, `--delay` (com retentativa/backoff), `--lang`, `--update`,
+  `--dry-run` e **`--offline`** (semeia do snapshot, sem rede).
+- **Snapshot versionado** [catalog/data/steam_top_games.json](backend/catalog/data/steam_top_games.json):
+  os 100 jogos "congelados" (título, ano, sinopse PT, capa/banner, taxonomias por nome),
+  exportados do banco após um `seed_steam_top --update` (dados uniformes da Steam).
+- **Loader compartilhado** [catalog/seed_data.py](backend/catalog/seed_data.py): `load_top_games()`
+  lê o snapshot; `apply_games()`/`apply_game()` inserem/atualizam casando por `steam_appid` e
+  resolvem taxonomias — reusado pelo `seed_steam_top --offline` **e** pelo `seed_demo`.
+- **Seed migrado** [seed_demo.py](backend/library/management/commands/seed_demo.py): saíram as
+  listas inline de 5 jogos/taxonomias; agora carrega os **100 do snapshot offline** e monta as
+  listas pessoais por `appid` (os 5 jogos da demo estão entre os 100). Users/listas/amizade/
+  notificações seguem iguais.
+- **Doc** [backend/README.md](backend/README.md): nova seção "Carregar o catálogo" + Setup e
+  Estrutura atualizados.
+
+### Como carregar (não há "config" no app)
+
+**Não existe nada a registrar em `settings.py`** (nem env var, nem `INSTALLED_APPS`): o
+snapshot é versionado no repo e lido direto pelo app `catalog` por caminho relativo ao pacote.
+"Carregar" = **rodar o comando** (todos idempotentes, casam por `steam_appid`):
+
+```
+python manage.py migrate                      # cria as tabelas
+python manage.py seed_demo                    # init: 3 usuários + 100 jogos (offline) + demo
+python manage.py seed_steam_top --offline     # só o catálogo, do snapshot, sem rede
+python manage.py seed_steam_top               # (online) cria/atualiza os 100 pela Steam
+python manage.py seed_steam_top --update      # refaz o snapshot-fonte com dados atuais da Steam
+```
+
+Num ambiente novo, o catálogo entra sozinho no passo `seed_demo` do setup. Auto-rodar o seed
+no startup do app (`AppConfig.ready()`) foi **descartado** de propósito — roda a cada
+processo/worker, exige o banco pronto e dá corrida; o idiomático é o comando no provisionamento
+(ou, se quiserem automatizar, um hook `post_migrate`/entrypoint — não feito).
+
+### Verificação executada
+
+1. **Run online completo:** `seed_steam_top` → **92 criados, 8 já existentes, 0 falhas** (de
+   100); todos os AppIDs resolveram na Storefront. Depois `--update` uniformizou os dados.
+2. **Snapshot:** exportado e validado — **100 entradas, 100 appids únicos**, nenhum sem
+   título/gênero; JSON UTF-8 (ex.: "Ação").
+3. **Init offline num banco limpo (teste):** `library.tests.SeedDemoTests` roda `seed_demo`
+   no `test_gamelist` (migra do zero) → **exatamente 100 jogos publicados** + 3 usuários + a
+   platina da Ana; segundo run **idempotente** (continua 100/3). Sem rede.
+4. **Suíte completa:** `manage.py test` → **74/74 OK** (72 + 2 novos do seed).
+5. **`manage.py check`** e **`seed_steam_top --offline --dry-run`** sem erros.
+
+### Estado ao final
+
+- Banco de dev já com **101 jogos** (100 do catálogo + 1 avulso pré-existente). Init limpo
+  (`migrate` + `seed_demo`) traz os 100 offline, instantâneo e reproduzível.
+- `db/seed.sql` (a "entrega" SQL) **não** foi tocado — segue com os 5 jogos originais; se o
+  grupo quiser, dá para regenerá-lo a partir do snapshot.
+
+---
+
 ## 2026-07-13 — Avatar por upload na edição de perfil (arquivo, não URL)
 
 ### Objetivo

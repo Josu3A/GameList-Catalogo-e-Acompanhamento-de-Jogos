@@ -1,0 +1,2256 @@
+[
+  {
+    "steam_appid": 730,
+    "titulo": "Counter-Strike 2",
+    "ano_lancamento": 2012,
+    "sinopse": "Ao longo de mais de duas décadas, o Counter‑Strike ofereceu uma experiência competitiva de elite, moldada por milhões de jogadores de todo o mundo. Agora, o próximo capítulo da história do CS está prestes a começar: Counter‑Strike 2.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/730/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/730/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Grátis para Jogar"
+    ],
+    "platforms": [
+      "Linux",
+      "Windows"
+    ],
+    "developers": [
+      "Valve"
+    ],
+    "publishers": [
+      "Valve"
+    ]
+  },
+  {
+    "steam_appid": 570,
+    "titulo": "Dota 2",
+    "ano_lancamento": 2013,
+    "sinopse": "Todos os dias, milhões de jogadores de todo o mundo levam um de mais de 100 heróis para a luta. Estejam a jogar há 10 ou 1000 horas, há sempre algo para descobrir. Com mecânicas, recursos e heróis sempre em evolução graças a atualizações regulares, o Dota 2 é mais do que um jogo.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/570/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/570/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Estratégia",
+      "Grátis para Jogar"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Valve"
+    ],
+    "publishers": [
+      "Valve"
+    ]
+  },
+  {
+    "steam_appid": 440,
+    "titulo": "Team Fortress 2",
+    "ano_lancamento": 2007,
+    "sinopse": "Nove classes distintas oferecem uma vasta gama de habilidades táticas e personalidades. Atualizado constantemente com novos modos de jogo, mapas, armas e, o mais importante, chapéus!",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/440/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/440/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Grátis para Jogar"
+    ],
+    "platforms": [
+      "Linux",
+      "Windows"
+    ],
+    "developers": [
+      "Valve"
+    ],
+    "publishers": [
+      "Valve"
+    ]
+  },
+  {
+    "steam_appid": 620,
+    "titulo": "Portal 2",
+    "ano_lancamento": 2011,
+    "sinopse": "A &quot;Iniciativa de Testes Perpétuos&quot; foi expandida para permitir que cries puzzles co-op para ti e os teus amigos!",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/620/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/620/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura"
+    ],
+    "platforms": [
+      "Linux",
+      "Windows"
+    ],
+    "developers": [
+      "Valve"
+    ],
+    "publishers": [
+      "Valve"
+    ]
+  },
+  {
+    "steam_appid": 400,
+    "titulo": "Portal",
+    "ano_lancamento": 2007,
+    "sinopse": "O Portal™ é um novo jogo da Valve para um jogador. Passado nos misteriosos Laboratórios Aperture Science, Portal é considerado um dos jogos mais inovadores do horizonte e irá proporcionar aos jogadores horas de jogo sem igual.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/400/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/400/library_hero.jpg",
+    "genres": [
+      "Ação"
+    ],
+    "platforms": [
+      "Linux",
+      "Windows"
+    ],
+    "developers": [
+      "Valve"
+    ],
+    "publishers": [
+      "Valve"
+    ]
+  },
+  {
+    "steam_appid": 220,
+    "titulo": "Half-Life 2",
+    "ano_lancamento": 2004,
+    "sinopse": "Depois de acordar da sua estase na Cidade 17, uma metrópole sob ocupação, Gordon Freeman é ajudado por Alyx Vance a liderar a desesperada resistência humana. Joga o icónico jogo de tiros em primeira pessoa recheado de níveis sem precedentes de exposição imersiva ao mundo, física que desafia os limites e combate alucinante.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/220/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/220/library_hero.jpg",
+    "genres": [
+      "Ação"
+    ],
+    "platforms": [
+      "Linux",
+      "Windows"
+    ],
+    "developers": [
+      "Valve"
+    ],
+    "publishers": [
+      "Valve"
+    ]
+  },
+  {
+    "steam_appid": 546560,
+    "titulo": "Half-Life: Alyx",
+    "ano_lancamento": 2020,
+    "sinopse": "﻿Half-Life: Alyx é o regresso em realidade virtual da Valve à série Half-Life. Trata-se da história de uma luta impossível contra uma raça alienígena cruel chamada Combine, situada entre os eventos de Half-Life e Half-Life 2.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/546560/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/546560/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Valve"
+    ],
+    "publishers": [
+      "Valve"
+    ]
+  },
+  {
+    "steam_appid": 550,
+    "titulo": "Left 4 Dead 2",
+    "ano_lancamento": 2009,
+    "sinopse": "Set in the zombie apocalypse, Left 4 Dead 2 is a co-operative action horror FPS takes you and your friends through the cities, swamps and cemeteries of the Deep South, from Savannah to New Orleans across five expansive campaigns.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/550/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/550/library_hero.jpg",
+    "genres": [
+      "Ação"
+    ],
+    "platforms": [
+      "Linux",
+      "Windows"
+    ],
+    "developers": [
+      "Valve"
+    ],
+    "publishers": [
+      "Valve"
+    ]
+  },
+  {
+    "steam_appid": 500,
+    "titulo": "Left 4 Dead",
+    "ano_lancamento": 2008,
+    "sinopse": "A Valve (criadores de jogos como Counter‑Strike e Half‑Life, entre outros) apresenta Left 4 Dead: um jogo co‑op de ação e terror para PC e Xbox 360 que lança até quatro jogadores numa luta épica pela sobrevivência contra hordas de zombies e terríveis monstros mutantes.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/500/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/500/library_hero.jpg",
+    "genres": [
+      "Ação"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Valve"
+    ],
+    "publishers": [
+      "Valve"
+    ]
+  },
+  {
+    "steam_appid": 4000,
+    "titulo": "Garry's Mod",
+    "ano_lancamento": 2006,
+    "sinopse": "Garry's Mod is a physics sandbox. There aren't any predefined aims or goals. We give you the tools and leave you to play.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/4000/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/4000/library_hero.jpg",
+    "genres": [
+      "Casual",
+      "Indie",
+      "Simulação"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Facepunch Studios"
+    ],
+    "publishers": [
+      "Valve"
+    ]
+  },
+  {
+    "steam_appid": 240,
+    "titulo": "Counter-Strike: Source",
+    "ano_lancamento": 2004,
+    "sinopse": "Counter-Strike: Source blends Counter-Strike's award-winning teamplay action with the advanced technology of Source™ technology.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/240/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/240/library_hero.jpg",
+    "genres": [
+      "Ação"
+    ],
+    "platforms": [
+      "Linux",
+      "Windows"
+    ],
+    "developers": [
+      "Valve"
+    ],
+    "publishers": [
+      "Valve"
+    ]
+  },
+  {
+    "steam_appid": 10,
+    "titulo": "Counter-Strike",
+    "ano_lancamento": 2000,
+    "sinopse": "Experimenta o jogo de ação online número 1 do mundo. Entra numa guerra de terroristas incrivelmente realista neste popular jogo com base no trabalho de equipa. Junta-te aos teus colegas de equipa para completar missões estratégicas. Elimina as instalações do inimigo. Salva reféns. O teu papel afeta o sucesso da tua equipa.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/10/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/10/library_hero.jpg",
+    "genres": [
+      "Ação"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Valve"
+    ],
+    "publishers": [
+      "Valve"
+    ]
+  },
+  {
+    "steam_appid": 578080,
+    "titulo": "PUBG: BATTLEGROUNDS",
+    "ano_lancamento": 2017,
+    "sinopse": "PUBG: BATTLEGROUNDS, o shooter que deu início à loucura dos Battle Royale e em que o vencedor leva tudo é free-to-play! Explora mapas diversos, saqueia armas e mantimentos exclusivos e sobrevive numa zona que encolhe constantemente, onde cada passo dado pode ser o teu último.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/578080/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/578080/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura",
+      "Grátis para Jogar",
+      "Multijogador Massivo Online (MMO)"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "PUBG Corporation"
+    ],
+    "publishers": [
+      "KRAFTON, Inc."
+    ]
+  },
+  {
+    "steam_appid": 1172470,
+    "titulo": "Apex Legends™",
+    "ano_lancamento": 2020,
+    "sinopse": "Apex Legends é o premiado jogo de tiros com Heróis grátis da Respawn Entertainment. Controla um elenco em constante evolução de personagens Lendárias com habilidades poderosas e diverte-te com a jogabilidade por esquadrões estratégica e inovadora nesta próxima evolução do Battle Royale.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1172470/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1172470/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura",
+      "Grátis para Jogar"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Respawn"
+    ],
+    "publishers": [
+      "Electronic Arts"
+    ]
+  },
+  {
+    "steam_appid": 1085660,
+    "titulo": "Destiny 2",
+    "ano_lancamento": 2019,
+    "sinopse": "Explora os mistérios de Sol e vive o emocionante combate do jogo de tiros na primeira pessoa Destiny 2. Desbloqueia habilidades poderosas e obtém equipamento único ao longo das missões da história e dos modos cooperativo e PvP.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1085660/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1085660/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura",
+      "Grátis para Jogar"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Bungie"
+    ],
+    "publishers": [
+      "Bungie"
+    ]
+  },
+  {
+    "steam_appid": 359550,
+    "titulo": "Tom Clancy's Rainbow Six Siege",
+    "ano_lancamento": 2015,
+    "sinopse": "Tom Clancy's Rainbow Six Siege é um jogo de tiro de elite, tático e em equipe. Triunfa quem planejar e executar melhor a estratégia.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/359550/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/359550/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Grátis para Jogar"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Ubisoft Montreal"
+    ],
+    "publishers": [
+      "Ubisoft"
+    ]
+  },
+  {
+    "steam_appid": 252490,
+    "titulo": "Rust",
+    "ano_lancamento": 2018,
+    "sinopse": "O único objetivo em Rust é sobreviver. Tudo te quer ver morto: a vida selvagem da ilha, outros habitantes, o ambiente e outros sobreviventes. Faz o que for preciso para aguentar outra noite.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/252490/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/252490/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura",
+      "Indie",
+      "Multijogador Massivo Online (MMO)",
+      "RPG"
+    ],
+    "platforms": [
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Facepunch Studios"
+    ],
+    "publishers": [
+      "Facepunch Studios"
+    ]
+  },
+  {
+    "steam_appid": 230410,
+    "titulo": "Warframe",
+    "ano_lancamento": 2013,
+    "sinopse": "Desperte como um guerreiro imparável e lute ao lado de seus amigos neste jogo de ação online gratuito com histórias envolventes.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/230410/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/230410/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Grátis para Jogar",
+      "RPG"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Digital Extremes"
+    ],
+    "publishers": [
+      "Digital Extremes"
+    ]
+  },
+  {
+    "steam_appid": 238960,
+    "titulo": "Path of Exile",
+    "ano_lancamento": 2013,
+    "sinopse": "Você é um Exilado, lutando para sobreviver no continente sombrio de Wraeclast, enquanto aumenta o seu poder para se vingar daqueles que te julgaram. o Path of Exile é um RPG de Ação situado em um mundo fantástico e sombrio. O jogo é completamente gratuito e nunca será 'pay-to-win.'",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/238960/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/238960/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura",
+      "Grátis para Jogar",
+      "Indie",
+      "Multijogador Massivo Online (MMO)",
+      "RPG"
+    ],
+    "platforms": [
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Grinding Gear Games"
+    ],
+    "publishers": [
+      "Grinding Gear Games"
+    ]
+  },
+  {
+    "steam_appid": 236390,
+    "titulo": "War Thunder",
+    "ano_lancamento": 2013,
+    "sinopse": "War Thunder é um MMO de combate grátis, dedicado a veículos militares dos períodos da 2ª Guerra Mundial e Guerra da Coreia. Lute em grandes batalhas no ar, terra e mar, com jogadores internacionais num ambiente sempre em desenvolvimento.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/236390/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/236390/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Grátis para Jogar",
+      "Multijogador Massivo Online (MMO)",
+      "Simulação"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Gaijin Entertainment"
+    ],
+    "publishers": [
+      "Gaijin Network Ltd"
+    ]
+  },
+  {
+    "steam_appid": 291550,
+    "titulo": "Brawlhalla",
+    "ano_lancamento": 2017,
+    "sinopse": "An epic platform fighter for up to 8 players online or local. Try casual free-for-alls, ranked matches, or invite friends to a private room. And it's free! Play cross-platform with millions of players on PlayStation, Xbox, Nintendo Switch, iOS, Android &amp; Steam! Frequent updates. Over sixty Legends.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/291550/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/291550/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Grátis para Jogar",
+      "Indie"
+    ],
+    "platforms": [
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Blue Mammoth Games"
+    ],
+    "publishers": [
+      "Ubisoft"
+    ]
+  },
+  {
+    "steam_appid": 218620,
+    "titulo": "PAYDAY 2",
+    "ano_lancamento": 2013,
+    "sinopse": "PAYDAY 2 é um jogo FPS de ação cooperativo de quatro jogadores que permite os jogadores a jogar na pele da gangue PAYDAY original - Dallas, Hoxton, Wolf e Chains - enquanto vão para Washington DC para uma épica série de crimes.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/218620/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/218620/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "RPG"
+    ],
+    "platforms": [
+      "Linux",
+      "Windows"
+    ],
+    "developers": [
+      "OVERKILL - a Starbreeze Studio."
+    ],
+    "publishers": [
+      "Starbreeze Entertainment"
+    ]
+  },
+  {
+    "steam_appid": 444090,
+    "titulo": "Paladins®",
+    "ano_lancamento": 2018,
+    "sinopse": "Junte-se a mais de 25 milhões de jogadores em Paladins, a jogo que tiro em equipes com temática de fantasia que é uma grande sensação. Use magia e armas como um lendário Campeão do Reino e personalize um baralho de cartas com habilidades especiais para montar o seu próprio estilo de jogo.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/444090/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/444090/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura",
+      "Estratégia",
+      "Grátis para Jogar",
+      "Multijogador Massivo Online (MMO)"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Evil Mojo Games"
+    ],
+    "publishers": [
+      "Hi-Rez Studios"
+    ]
+  },
+  {
+    "steam_appid": 381210,
+    "titulo": "Dead by Daylight",
+    "ano_lancamento": 2016,
+    "sinopse": "10 years of horror. 10 years of jump scares and close calls. 10 years of brutal sacrifices and thrilling escapes. Trapped forever in a realm of eldritch evil where even death is not an escape, four determined Survivors face a bloodthirsty Killer in a vicious game of nerve and wits.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/381210/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/381210/library_hero.jpg",
+    "genres": [
+      "Ação"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Behaviour Interactive Inc."
+    ],
+    "publishers": [
+      "Behaviour Interactive Inc."
+    ]
+  },
+  {
+    "steam_appid": 739630,
+    "titulo": "Phasmophobia",
+    "ano_lancamento": 2020,
+    "sinopse": "Phasmophobia is a 4 player online co-op psychological horror. Paranormal activity is on the rise and it’s up to you and your team to use all the ghost-hunting equipment at your disposal in order to gather as much evidence as you can.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/739630/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/739630/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Acesso Antecipado",
+      "Indie"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Kinetic Games"
+    ],
+    "publishers": [
+      "Kinetic Games"
+    ]
+  },
+  {
+    "steam_appid": 1966720,
+    "titulo": "Lethal Company",
+    "ano_lancamento": 2023,
+    "sinopse": "A co-op horror about scavenging at abandoned moons to sell scrap to the Company.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1966720/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1966720/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Acesso Antecipado",
+      "Aventura",
+      "Indie"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Zeekerss"
+    ],
+    "publishers": [
+      "Zeekerss"
+    ]
+  },
+  {
+    "steam_appid": 632360,
+    "titulo": "Risk of Rain 2",
+    "ano_lancamento": 2020,
+    "sinopse": "Luta contra hordas de monstros frenéticos para escapar de um planeta alienígena caótico, sozinho ou com os teus amigos. Combina o teu saque de formas surpreendentes e domina todos os personagens até te tornares o caos que temias quando te despenhaste pela primeira vez.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/632360/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/632360/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Indie"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Hopoo Games"
+    ],
+    "publishers": [
+      "2K",
+      "Gearbox Publishing"
+    ]
+  },
+  {
+    "steam_appid": 322330,
+    "titulo": "Don't Starve Together",
+    "ano_lancamento": 2016,
+    "sinopse": "Fight, Farm, Build and Explore Together in the standalone multiplayer expansion to the uncompromising wilderness survival game, Don't Starve.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/322330/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/322330/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura",
+      "Estratégia",
+      "Indie",
+      "RPG",
+      "Simulação"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Klei Entertainment"
+    ],
+    "publishers": [
+      "Klei Entertainment"
+    ]
+  },
+  {
+    "steam_appid": 105600,
+    "titulo": "Terraria",
+    "ano_lancamento": 2011,
+    "sinopse": "Escave, lute, explore, construa! Nada é impossível neste jogo de aventura cheio de ação. Pacote com Quatro também disponível!",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/105600/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/105600/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura",
+      "Indie",
+      "RPG"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Re-Logic"
+    ],
+    "publishers": [
+      "Re-Logic"
+    ]
+  },
+  {
+    "steam_appid": 892970,
+    "titulo": "Valheim",
+    "ano_lancamento": 2021,
+    "sinopse": "Um brutal jogo de exploração e sobrevivência para 1 a 10 jogadores, ambientado em um purgatório gerado de forma procedural, inspirado na cultura viking. Batalhe, construa e conquiste glória em uma saga digna da benção de Odin!",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/892970/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/892970/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Acesso Antecipado",
+      "Aventura",
+      "Indie",
+      "RPG"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Iron Gate AB"
+    ],
+    "publishers": [
+      "Coffee Stain Publishing"
+    ]
+  },
+  {
+    "steam_appid": 526870,
+    "titulo": "Satisfactory",
+    "ano_lancamento": 2024,
+    "sinopse": "Satisfactory is a first-person open-world factory building game with a dash of exploration and combat. Play alone or with friends, explore an alien planet, create multi-story factories, and enter conveyor belt heaven!",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/526870/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/526870/library_hero.jpg",
+    "genres": [
+      "Aventura",
+      "Estratégia",
+      "Indie",
+      "Simulação"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Coffee Stain Studios"
+    ],
+    "publishers": [
+      "Coffee Stain Publishing"
+    ]
+  },
+  {
+    "steam_appid": 251570,
+    "titulo": "7 Days to Die",
+    "ano_lancamento": 2024,
+    "sinopse": "7 Days to Die is an open-world game that is a unique combination of first-person shooter, survival horror, tower defense, and role-playing games. Play the definitive zombie survival sandbox RPG that came first. Navezgane awaits!",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/251570/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/251570/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura",
+      "Estratégia",
+      "Indie",
+      "RPG",
+      "Simulação"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "The Fun Pimps"
+    ],
+    "publishers": [
+      "The Fun Pimps Entertainment LLC"
+    ]
+  },
+  {
+    "steam_appid": 346110,
+    "titulo": "ARK: Survival Evolved",
+    "ano_lancamento": 2017,
+    "sinopse": "Stranded on the shores of a mysterious island, you must learn to survive. Use your cunning to kill or tame the primeval creatures roaming the land, and encounter other players to survive, dominate... and escape!",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/346110/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/346110/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura",
+      "Indie",
+      "Multijogador Massivo Online (MMO)",
+      "RPG"
+    ],
+    "platforms": [
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Efecto Studios",
+      "Instinct Games",
+      "Studio Wildcard",
+      "Virtual Basement LLC"
+    ],
+    "publishers": [
+      "Snail Games USA",
+      "Studio Wildcard"
+    ]
+  },
+  {
+    "steam_appid": 264710,
+    "titulo": "Subnautica",
+    "ano_lancamento": 2018,
+    "sinopse": "Descend into the depths of an alien underwater world filled with wonder and peril. Craft equipment, pilot submarines and out-smart wildlife to explore lush coral reefs, volcanoes, cave systems, and more - all while trying to survive.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/264710/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/264710/library_hero.jpg",
+    "genres": [
+      "Aventura",
+      "Indie"
+    ],
+    "platforms": [
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Unknown Worlds Entertainment"
+    ],
+    "publishers": [
+      "Unknown Worlds Entertainment"
+    ]
+  },
+  {
+    "steam_appid": 848450,
+    "titulo": "Subnautica: Below Zero",
+    "ano_lancamento": 2021,
+    "sinopse": "Dive into a freezing underwater adventure on an alien planet. Below Zero is set two years after the original Subnautica. Return to Planet 4546B to uncover the truth behind a deadly cover-up. Survive by building habitats, crafting tools, &amp; diving deeper into the world of Subnautica.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/848450/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/848450/library_hero.jpg",
+    "genres": [
+      "Aventura",
+      "Indie"
+    ],
+    "platforms": [
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Unknown Worlds Entertainment"
+    ],
+    "publishers": [
+      "Unknown Worlds Entertainment"
+    ]
+  },
+  {
+    "steam_appid": 275850,
+    "titulo": "No Man's Sky",
+    "ano_lancamento": 2016,
+    "sinopse": "No Man's Sky é um jogo de ficção científica sobre exploração e sobrevivência num universo infinito, gerado por procedimentos.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/275850/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/275850/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura"
+    ],
+    "platforms": [
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Hello Games"
+    ],
+    "publishers": [
+      "Hello Games"
+    ]
+  },
+  {
+    "steam_appid": 227300,
+    "titulo": "Euro Truck Simulator 2",
+    "ano_lancamento": 2012,
+    "sinopse": "Travel across Europe as king of the road, a trucker who delivers important cargo across impressive distances! With dozens of cities to explore, your endurance, skill and speed will all be pushed to their limits.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/227300/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/227300/library_hero.jpg",
+    "genres": [
+      "Indie",
+      "Simulação"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "SCS Software"
+    ],
+    "publishers": [
+      "SCS Software"
+    ]
+  },
+  {
+    "steam_appid": 270880,
+    "titulo": "American Truck Simulator",
+    "ano_lancamento": 2016,
+    "sinopse": "Experience legendary American trucks and deliver various cargoes across sunny California, sandy Nevada, and the Grand Canyon State of Arizona. American Truck Simulator takes you on a journey through the breathtaking landscapes and widely recognized landmarks around the States.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/270880/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/270880/library_hero.jpg",
+    "genres": [
+      "Indie",
+      "Simulação"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "SCS Software"
+    ],
+    "publishers": [
+      "SCS Software"
+    ]
+  },
+  {
+    "steam_appid": 431960,
+    "titulo": "Wallpaper Engine",
+    "ano_lancamento": 2018,
+    "sinopse": "Use wallpapers animados deslumbrantes na sua área de trabalho. Anime as suas próprias imagens para criar wallpapers novos ou importe vídeos/websites e partilhe-os no Steam Workshop!",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/431960/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/431960/library_hero.jpg",
+    "genres": [
+      "Animação e Modelação",
+      "Casual",
+      "Design e Ilustração",
+      "Edição de Fotografias",
+      "Indie",
+      "Utilidades"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Wallpaper Engine Team"
+    ],
+    "publishers": [
+      "Wallpaper Engine Team"
+    ]
+  },
+  {
+    "steam_appid": 620980,
+    "titulo": "Beat Saber",
+    "ano_lancamento": 2019,
+    "sinopse": "Beat Saber is a VR rhythm game where you slash the beats of adrenaline-pumping music as they fly towards you, surrounded by a futuristic world.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/620980/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/620980/library_hero.jpg",
+    "genres": [
+      "Indie"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Beat Games"
+    ],
+    "publishers": [
+      "Beat Games"
+    ]
+  },
+  {
+    "steam_appid": 413150,
+    "titulo": "Stardew Valley",
+    "ano_lancamento": 2016,
+    "sinopse": "You've inherited your grandfather's old farm plot in Stardew Valley. Armed with hand-me-down tools and a few coins, you set out to begin your new life. Can you learn to live off the land and turn these overgrown fields into a thriving home?",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/413150/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/413150/library_hero.jpg",
+    "genres": [
+      "Indie",
+      "RPG",
+      "Simulação"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "ConcernedApe"
+    ],
+    "publishers": [
+      "ConcernedApe"
+    ]
+  },
+  {
+    "steam_appid": 1245620,
+    "titulo": "ELDEN RING",
+    "ano_lancamento": 2022,
+    "sinopse": "O NOVO RPG DE AÇÃO E FANTASIA. Ergue-te, Maculado, e deixa-te guiar pela graça para brandires o poder do Elden Ring e tornares-te um Lorde Elden nas Terras Intermédias.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1245620/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1245620/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "RPG"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "FromSoftware, Inc."
+    ],
+    "publishers": [
+      "Bandai Namco Entertainment",
+      "FromSoftware, Inc."
+    ]
+  },
+  {
+    "steam_appid": 1091500,
+    "titulo": "Cyberpunk 2077",
+    "ano_lancamento": 2020,
+    "sinopse": "Cyberpunk 2077 é um RPG de ação num mundo aberto que decorre em Night City, uma megalópole perigosa onde todos estão obcecados pelo poder, glamour e alterações ao corpo.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1091500/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1091500/library_hero.jpg",
+    "genres": [
+      "RPG"
+    ],
+    "platforms": [
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "CD PROJEKT RED"
+    ],
+    "publishers": [
+      "CD PROJEKT RED"
+    ]
+  },
+  {
+    "steam_appid": 292030,
+    "titulo": "The Witcher 3: Wild Hunt",
+    "ano_lancamento": 2015,
+    "sinopse": "És Geralt of Rivia, um mercenário caçador de monstros. Perante ti, encontras um continente destruído e infestado por monstros, que podes explorar como quiseres. O teu contrato: encontrar Ciri, a Criança da Profecia, uma arma viva capaz de alterar a forma do mundo.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/292030/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/292030/library_hero.jpg",
+    "genres": [
+      "RPG"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "CD PROJEKT RED"
+    ],
+    "publishers": [
+      "CD PROJEKT RED"
+    ]
+  },
+  {
+    "steam_appid": 1174180,
+    "titulo": "Red Dead Redemption 2",
+    "ano_lancamento": 2019,
+    "sinopse": "Arthur Morgan e o bando Van der Linde estão em fuga. No seu encalço têm agentes federais e os melhores caçadores de prémios da nação. O bando terá de assaltar, roubar e abrir caminho para sobreviver no inóspito coração da América.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1174180/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1174180/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Rockstar Games"
+    ],
+    "publishers": [
+      "Rockstar Games"
+    ]
+  },
+  {
+    "steam_appid": 271590,
+    "titulo": "Grand Theft Auto V Legacy",
+    "ano_lancamento": 2015,
+    "sinopse": "Grand Theft Auto V para PC oferece aos jogadores a opção de explorar o gigantesco e premiado mundo de Los Santos e Blaine County em resoluções de até 4K e além, assim como a chance de experimentar o jogo rodando a 60 FPS (quadros por segundo).",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/271590/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/271590/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Rockstar North"
+    ],
+    "publishers": [
+      "Rockstar Games"
+    ]
+  },
+  {
+    "steam_appid": 1086940,
+    "titulo": "Baldur's Gate 3",
+    "ano_lancamento": 2023,
+    "sinopse": "Baldur’s Gate 3 is a story-rich, party-based RPG set in the universe of Dungeons &amp; Dragons, where your choices shape a tale of fellowship and betrayal, survival and sacrifice, and the lure of absolute power.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1086940/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1086940/library_hero.jpg",
+    "genres": [
+      "Aventura",
+      "Estratégia",
+      "RPG"
+    ],
+    "platforms": [
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Larian Studios"
+    ],
+    "publishers": [
+      "Larian Studios"
+    ]
+  },
+  {
+    "steam_appid": 990080,
+    "titulo": "Hogwarts Legacy",
+    "ano_lancamento": 2023,
+    "sinopse": "O Hogwarts Legacy é um RPG de ação imersivo e de mundo aberto. Agora podes assumir o controlo da ação e estar no centro da tua própria aventura no mundo da feitiçaria.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/990080/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/990080/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura",
+      "RPG"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Avalanche Software"
+    ],
+    "publishers": [
+      "Warner Bros. Games"
+    ]
+  },
+  {
+    "steam_appid": 377160,
+    "titulo": "Fallout 4",
+    "ano_lancamento": 2015,
+    "sinopse": "Da autoria da Bethesda Game Studios, premiada criadora de Starfield e The Elder Scrolls V: Skyrim, chega-nos Fallout 4. Uma referência em RPG de mundo aberto e vencedor de mais de 200 prémios “Best Of”, incluindo Jogo do Ano dos DICE e BAFTA.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/377160/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/377160/library_hero.jpg",
+    "genres": [
+      "RPG"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Bethesda Game Studios"
+    ],
+    "publishers": [
+      "Bethesda Softworks"
+    ]
+  },
+  {
+    "steam_appid": 22380,
+    "titulo": "Fallout: New Vegas",
+    "ano_lancamento": 2010,
+    "sinopse": "Welcome to Vegas. New Vegas. Enjoy your stay!",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/22380/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/22380/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "RPG"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Obsidian Entertainment"
+    ],
+    "publishers": [
+      "Bethesda Softworks"
+    ]
+  },
+  {
+    "steam_appid": 22370,
+    "titulo": "Fallout 3: Game of the Year Edition",
+    "ano_lancamento": 2009,
+    "sinopse": "Prepare for the Future™ With Fallout 3: Game of the Year Edition, experience the most acclaimed game of 2008 like never before. Create a character of your choosing and descend into an awe-inspiring, post-apocalyptic world where every minute is a fight for survival.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/22370/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/22370/library_hero.jpg",
+    "genres": [
+      "RPG"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Bethesda Game Studios"
+    ],
+    "publishers": [
+      "Bethesda Softworks"
+    ]
+  },
+  {
+    "steam_appid": 489830,
+    "titulo": "The Elder Scrolls V: Skyrim Special Edition",
+    "ano_lancamento": 2016,
+    "sinopse": "Vencedor de mais de 200 prémios de Jogo do Ano, The Elder Scrolls V: Skyrim Special Edition dá vida à fantasia épica com um nível de detalhe espantoso. A Special Edition inclui o jogo aclamado pela crítica e suplementos com novas funcionalidades.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/489830/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/489830/library_hero.jpg",
+    "genres": [
+      "RPG"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Bethesda Game Studios"
+    ],
+    "publishers": [
+      "Bethesda Softworks"
+    ]
+  },
+  {
+    "steam_appid": 72850,
+    "titulo": "The Elder Scrolls V: Skyrim",
+    "ano_lancamento": 2011,
+    "sinopse": "EPIC FANTASY REBORN The next chapter in the highly anticipated Elder Scrolls saga arrives from the makers of the 2006 and 2008 Games of the Year, Bethesda Game Studios. Skyrim reimagines and revolutionizes the open-world fantasy epic, bringing to life a complete virtual world open for you to explore any way you choose.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/72850/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/72850/library_hero.jpg",
+    "genres": [
+      "RPG"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Bethesda Game Studios"
+    ],
+    "publishers": [
+      "Bethesda Softworks"
+    ]
+  },
+  {
+    "steam_appid": 1817070,
+    "titulo": "Marvel’s Spider-Man Remastered",
+    "ano_lancamento": 2022,
+    "sinopse": "Em Marvel's Spider-Man Remasterizado, os mundos do Peter Parker e do Spider-Man colidem numa história repleta de ação. Encontra um Peter Parker experiente e combate o crime e os vilões icónicos da Nova Iorque da Marvel. Baloiça por bairros vibrantes e vence vilões com neutralizações épicas.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1817070/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1817070/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura",
+      "Casual"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Insomniac Games",
+      "Nixxes Software"
+    ],
+    "publishers": [
+      "PlayStation Publishing LLC"
+    ]
+  },
+  {
+    "steam_appid": 1817190,
+    "titulo": "Marvel’s Spider-Man: Miles Morales",
+    "ano_lancamento": 2022,
+    "sinopse": "Depois de Marvel's Spider-Man Remasterizado, o Miles Morales adapta-se ao seu novo lar enquanto segue as pisadas do seu mentor, o Peter Parker, para se tornar o novo Spider-Man. Quando uma disputa pelo poder ameaça destruir o seu lar, o Miles tem de entrar em ação e assumir o papel de Spider-Man.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1817190/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1817190/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Insomniac Games",
+      "Nixxes Software"
+    ],
+    "publishers": [
+      "PlayStation Publishing LLC"
+    ]
+  },
+  {
+    "steam_appid": 1888930,
+    "titulo": "The Last of Us™ Parte I",
+    "ano_lancamento": 2023,
+    "sinopse": "Descobre o jogo premiado que inspirou a aclamada série televisiva. Guia Joel e Ellie por uma América pós-apocalíptica e encontra aliados e inimigos inesquecíveis em The Last of Us™.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1888930/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1888930/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Iron Galaxy Studios",
+      "Naughty Dog LLC"
+    ],
+    "publishers": [
+      "PlayStation Publishing LLC"
+    ]
+  },
+  {
+    "steam_appid": 582010,
+    "titulo": "Monster Hunter: World",
+    "ano_lancamento": 2018,
+    "sinopse": "Bem-vindo a um novo mundo! Monster Hunter: World é o mais recente jogo da série e a derradeira experiência de caça. Usa todos os recursos à tua disposição para caçar monstros num mundo a transbordar de surpresas e adrenalina.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/582010/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/582010/library_hero.jpg",
+    "genres": [
+      "Ação"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "CAPCOM Co., Ltd."
+    ],
+    "publishers": [
+      "CAPCOM Co., Ltd."
+    ]
+  },
+  {
+    "steam_appid": 1446780,
+    "titulo": "MONSTER HUNTER RISE",
+    "ano_lancamento": 2022,
+    "sinopse": "Aceita o desafio e junta-te à caça! Torna-te caçador, explora novos mapas e usa uma variedade de armas para derrotar monstros temíveis num enredo totalmente novo, no mais recente episódio da galardoada série Monster Hunter: Monster Hunter Rise.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1446780/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1446780/library_hero.jpg",
+    "genres": [
+      "Ação"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "CAPCOM Co., Ltd."
+    ],
+    "publishers": [
+      "CAPCOM Co., Ltd."
+    ]
+  },
+  {
+    "steam_appid": 601150,
+    "titulo": "Devil May Cry 5",
+    "ano_lancamento": 2019,
+    "sinopse": "O derradeiro Devil Hunter voltou ao seu melhor estilo no jogo de ação pelo qual os fãs salivavam.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/601150/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/601150/library_hero.jpg",
+    "genres": [
+      "Ação"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "CAPCOM Co., Ltd."
+    ],
+    "publishers": [
+      "CAPCOM Co., Ltd."
+    ]
+  },
+  {
+    "steam_appid": 782330,
+    "titulo": "DOOM Eternal",
+    "ano_lancamento": 2020,
+    "sinopse": "Os exércitos do Inferno invadiram a Terra. Torna-te o Slayer numa campanha épica para jogador individual e vence os demónios em várias dimensões para impedir a destruição da humanidade. A única coisa que eles temem... és tu.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/782330/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/782330/library_hero.jpg",
+    "genres": [
+      "Ação"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "id Software"
+    ],
+    "publishers": [
+      "Bethesda Softworks"
+    ]
+  },
+  {
+    "steam_appid": 379720,
+    "titulo": "DOOM",
+    "ano_lancamento": 2016,
+    "sinopse": "Now includes all three premium DLC packs (Unto the Evil, Hell Followed, and Bloodfall), maps, modes, and weapons, as well as all feature updates including Arcade Mode, Photo Mode, and the latest Update 6.66, which brings further multiplayer improvements as well as revamps multiplayer progression.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/379720/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/379720/library_hero.jpg",
+    "genres": [
+      "Ação"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "id Software"
+    ],
+    "publishers": [
+      "Bethesda Softworks"
+    ]
+  },
+  {
+    "steam_appid": 1030840,
+    "titulo": "Mafia: Definitive Edition",
+    "ano_lancamento": 2020,
+    "sinopse": "Um encontro com a máfia lança o taxista Tommy Angelo para o mundo do crime organizado. Tommy mostra-se relutante em se imiscuir com a família Salieri, mas as recompensas são demasiado tentadoras.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1030840/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1030840/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Hangar 13"
+    ],
+    "publishers": [
+      "2K"
+    ]
+  },
+  {
+    "steam_appid": 435150,
+    "titulo": "Divinity: Original Sin 2 - Definitive Edition",
+    "ano_lancamento": 2017,
+    "sinopse": "The critically acclaimed RPG that raised the bar, from the creators of Baldur's Gate 3. Gather your party. Master deep, tactical combat. Venture as a party of up to four - but know that only one of you will have the chance to become a God.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/435150/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/435150/library_hero.jpg",
+    "genres": [
+      "Aventura",
+      "Estratégia",
+      "RPG"
+    ],
+    "platforms": [
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Larian Studios"
+    ],
+    "publishers": [
+      "Larian Studios"
+    ]
+  },
+  {
+    "steam_appid": 552520,
+    "titulo": "Far Cry® 5",
+    "ano_lancamento": 2018,
+    "sinopse": "Bem-vindo a Hope County, Montana, a região onde se encontra um culto de fanáticos do juízo final conhecido como Eden’s Gate. Enfrenta o líder Joseph Seed e seus irmãos, os Heralds, para iniciar a resistência e libertar a comunidade em estado de sítio.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/552520/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/552520/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Red Storm",
+      "Ubisoft Kiev",
+      "Ubisoft Montreal",
+      "Ubisoft Shanghai",
+      "Ubisoft Toronto"
+    ],
+    "publishers": [
+      "Ubisoft"
+    ]
+  },
+  {
+    "steam_appid": 289070,
+    "titulo": "Sid Meier’s Civilization® VI",
+    "ano_lancamento": 2016,
+    "sinopse": "O Civilization VI oferece novas formas de interagires com o teu mundo, expandires o teu império através do mapa, avançares a tua cultura e competires contra os maiores líderes históricos para construíres uma civilização que resistirá ao passar do tempo.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/289070/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/289070/library_hero.jpg",
+    "genres": [
+      "Estratégia"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Aspyr (Linux)",
+      "Aspyr (Mac)",
+      "Firaxis Games"
+    ],
+    "publishers": [
+      "2K",
+      "Aspyr (Linux)",
+      "Aspyr (Mac)"
+    ]
+  },
+  {
+    "steam_appid": 8930,
+    "titulo": "Sid Meier's Civilization® V",
+    "ano_lancamento": 2010,
+    "sinopse": "Create, discover, and download new player-created maps, scenarios, interfaces, and more!",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/8930/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/8930/library_hero.jpg",
+    "genres": [
+      "Estratégia"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Aspyr (Linux)",
+      "Aspyr (Mac)",
+      "Firaxis Games"
+    ],
+    "publishers": [
+      "2K",
+      "Aspyr (Linux)",
+      "Aspyr (Mac)"
+    ]
+  },
+  {
+    "steam_appid": 294100,
+    "titulo": "RimWorld",
+    "ano_lancamento": 2018,
+    "sinopse": "A sci-fi colony sim driven by an intelligent AI storyteller. Generates stories by simulating psychology, ecology, gunplay, melee combat, climate, biomes, diplomacy, interpersonal relationships, art, medicine, trade, and more.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/294100/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/294100/library_hero.jpg",
+    "genres": [
+      "Estratégia",
+      "Indie",
+      "Simulação"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Ludeon Studios"
+    ],
+    "publishers": [
+      "Ludeon Studios"
+    ]
+  },
+  {
+    "steam_appid": 255710,
+    "titulo": "Cities: Skylines",
+    "ano_lancamento": 2015,
+    "sinopse": "Cities: Skylines is a modern take on the classic city simulation. The game introduces new game play elements to realize the thrill and hardships of creating and maintaining a real city whilst expanding on some well-established tropes of the city building experience.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/255710/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/255710/library_hero.jpg",
+    "genres": [
+      "Estratégia",
+      "Simulação"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Colossal Order"
+    ],
+    "publishers": [
+      "Paradox Interactive"
+    ]
+  },
+  {
+    "steam_appid": 236850,
+    "titulo": "Europa Universalis IV",
+    "ano_lancamento": 2013,
+    "sinopse": "Governa a tua terra e domina o mundo com liberdade, profundidade e precisão histórica incomparáveis. Escreve uma nova história do mundo e ergue um império notável.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/236850/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/236850/library_hero.jpg",
+    "genres": [
+      "Estratégia",
+      "Simulação"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Paradox Development Studio",
+      "Paradox Tinto"
+    ],
+    "publishers": [
+      "Paradox Interactive"
+    ]
+  },
+  {
+    "steam_appid": 281990,
+    "titulo": "Stellaris",
+    "ano_lancamento": 2016,
+    "sinopse": "Explora uma galáxia cheia de maravilhas, neste jogo de ficção científica e estratégia de grande escala, da Paradox Development Studios. Interage com alienígenas, descobre mundos estranhos, eventos inesperados, e expande o teu império. Cada aventura oferece possibilidades praticamente ilimitadas.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/281990/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/281990/library_hero.jpg",
+    "genres": [
+      "Estratégia",
+      "Simulação"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Paradox Development Studio"
+    ],
+    "publishers": [
+      "Paradox Interactive"
+    ]
+  },
+  {
+    "steam_appid": 394360,
+    "titulo": "Hearts of Iron IV",
+    "ano_lancamento": 2016,
+    "sinopse": "Victory is at your fingertips! Your ability to lead your nation is your supreme weapon, the strategy game Hearts of Iron IV lets you take command of any nation in World War II; the most engaging conflict in world history.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/394360/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/394360/library_hero.jpg",
+    "genres": [
+      "Estratégia",
+      "Simulação"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Paradox Development Studio"
+    ],
+    "publishers": [
+      "Paradox Interactive"
+    ]
+  },
+  {
+    "steam_appid": 203770,
+    "titulo": "Crusader Kings II",
+    "ano_lancamento": 2012,
+    "sinopse": "Explora um dos mais definidos períodos na história do mundo numa experiência trabalhada pelos mestres da Grande Estratégia.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/203770/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/203770/library_hero.jpg",
+    "genres": [
+      "Estratégia",
+      "Grátis para Jogar",
+      "RPG",
+      "Simulação"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Paradox Development Studio"
+    ],
+    "publishers": [
+      "Paradox Interactive"
+    ]
+  },
+  {
+    "steam_appid": 1158310,
+    "titulo": "Crusader Kings III",
+    "ano_lancamento": 2020,
+    "sinopse": "Ame, lute, crie esquemas e reivindique a grandeza. Determine o legado de sua casa nobre na grande estratégia disponível em Crusader Kings III. A morte é apenas o começo ao guiar a linhagem de sua dinastia nesta simulação rica e essencial da Idade Média.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1158310/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1158310/library_hero.jpg",
+    "genres": [
+      "Estratégia",
+      "RPG",
+      "Simulação"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Paradox Development Studio"
+    ],
+    "publishers": [
+      "Paradox Interactive"
+    ]
+  },
+  {
+    "steam_appid": 261550,
+    "titulo": "Mount & Blade II: Bannerlord",
+    "ano_lancamento": 2022,
+    "sinopse": "A strategy/action RPG. Create a character, engage in diplomacy, craft, trade and conquer new lands in a vast medieval sandbox. Raise armies to lead into battle and command and fight alongside your troops in massive real-time battles using a deep but intuitive skill-based combat system.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/261550/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/261550/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Estratégia",
+      "Indie",
+      "RPG",
+      "Simulação"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "TaleWorlds Entertainment"
+    ],
+    "publishers": [
+      "TaleWorlds Entertainment"
+    ]
+  },
+  {
+    "steam_appid": 48700,
+    "titulo": "Mount & Blade: Warband",
+    "ano_lancamento": 2010,
+    "sinopse": "In a land torn asunder by incessant warfare, it is time to assemble your own band of hardened warriors and enter the fray. Lead your men into battle, expand your realm, and claim the ultimate prize: the throne of Calradia!",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/48700/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/48700/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "RPG"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "TaleWorlds Entertainment"
+    ],
+    "publishers": [
+      "TaleWorlds Entertainment"
+    ]
+  },
+  {
+    "steam_appid": 1145360,
+    "titulo": "Hades",
+    "ano_lancamento": 2020,
+    "sinopse": "Defy the god of the dead as you hack and slash out of the Underworld in this rogue-like dungeon crawler from the creators of Bastion, Transistor, and Pyre.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1145360/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1145360/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Indie",
+      "RPG"
+    ],
+    "platforms": [
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Supergiant Games"
+    ],
+    "publishers": [
+      "Supergiant Games"
+    ]
+  },
+  {
+    "steam_appid": 367520,
+    "titulo": "Hollow Knight",
+    "ano_lancamento": 2017,
+    "sinopse": "Forge your own path in Hollow Knight! An epic action adventure through a vast ruined kingdom of insects and heroes. Explore twisting caverns, battle tainted creatures and befriend bizarre bugs, all in a classic, hand-drawn 2D style.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/367520/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/367520/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura",
+      "Indie"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Team Cherry"
+    ],
+    "publishers": [
+      "Team Cherry"
+    ]
+  },
+  {
+    "steam_appid": 504230,
+    "titulo": "Celeste",
+    "ano_lancamento": 2018,
+    "sinopse": "Ajuda Madeline a sobreviver aos seus demónios interiores na jornada até ao topo da Montanha Celeste neste jogo de plataformas dos criadores de TowerFall. Enfrenta centenas de desafios, desvenda segredos perturbadores e revela o mistério da montanha.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/504230/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/504230/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura",
+      "Indie"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Extremely OK Games, Ltd.",
+      "Maddy Makes Games Inc."
+    ],
+    "publishers": [
+      "Maddy Makes Games Inc."
+    ]
+  },
+  {
+    "steam_appid": 391540,
+    "titulo": "Undertale",
+    "ano_lancamento": 2015,
+    "sinopse": "UNDERTALE! The RPG game where you don't have to destroy anyone.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/391540/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/391540/library_hero.jpg",
+    "genres": [
+      "Indie",
+      "RPG"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "tobyfox"
+    ],
+    "publishers": [
+      "tobyfox"
+    ]
+  },
+  {
+    "steam_appid": 268910,
+    "titulo": "Cuphead",
+    "ano_lancamento": 2017,
+    "sinopse": "Cuphead is a classic run and gun action game heavily focused on boss battles. Inspired by cartoons of the 1930s, the visuals and audio are painstakingly created with the same techniques of the era, i.e. traditional hand drawn cel animation, watercolor backgrounds, and original jazz recordings.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/268910/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/268910/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Indie"
+    ],
+    "platforms": [
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Studio MDHR Entertainment Inc."
+    ],
+    "publishers": [
+      "Studio MDHR Entertainment Inc."
+    ]
+  },
+  {
+    "steam_appid": 646570,
+    "titulo": "Slay the Spire",
+    "ano_lancamento": 2019,
+    "sinopse": "We fused card games and roguelikes together to make the best single player deckbuilder we could. Craft a unique deck, encounter bizarre creatures, discover relics of immense power, and Slay the Spire!",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/646570/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/646570/library_hero.jpg",
+    "genres": [
+      "Estratégia",
+      "Indie"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Mega Crit"
+    ],
+    "publishers": [
+      "Mega Crit"
+    ]
+  },
+  {
+    "steam_appid": 588650,
+    "titulo": "Dead Cells",
+    "ano_lancamento": 2018,
+    "sinopse": "Dead Cells is a roguelite, metroidvania inspired, action-platformer. You'll explore a sprawling, ever-changing castle... assuming you’re able to fight your way past its keepers in 2D souls-lite combat. No checkpoints. Kill, die, learn, repeat.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/588650/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/588650/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura",
+      "Indie"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Motion Twin"
+    ],
+    "publishers": [
+      "Motion Twin"
+    ]
+  },
+  {
+    "steam_appid": 262060,
+    "titulo": "Darkest Dungeon®",
+    "ano_lancamento": 2016,
+    "sinopse": "Darkest Dungeon is a challenging gothic roguelike turn-based RPG about the psychological stresses of adventuring. Recruit, train, and lead a team of flawed heroes against unimaginable horrors, stress, disease, and the ever-encroaching dark. Can you keep your heroes together when all hope is lost?",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/262060/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/262060/library_hero.jpg",
+    "genres": [
+      "Estratégia",
+      "Indie",
+      "RPG"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Red Hook Studios"
+    ],
+    "publishers": [
+      "Red Hook Studios"
+    ]
+  },
+  {
+    "steam_appid": 311690,
+    "titulo": "Enter the Gungeon",
+    "ano_lancamento": 2016,
+    "sinopse": "Enter the Gungeon é um dungeon crawler bullet hell que te deixa controlar um bando de alucinados que farão o que for preciso para terem a absolvição e deitar a mão ao derradeiro tesouro da Gungeon: a arma capaz de matar o passado!",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/311690/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/311690/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura",
+      "Indie"
+    ],
+    "platforms": [
+      "Linux",
+      "Windows"
+    ],
+    "developers": [
+      "Dodge Roll"
+    ],
+    "publishers": [
+      "Devolver Digital"
+    ]
+  },
+  {
+    "steam_appid": 1426210,
+    "titulo": "It Takes Two",
+    "ano_lancamento": 2021,
+    "sinopse": "Entra na caminhada mais louca da tua vida em It Takes Two. Convida um amigo para jogar gratuitamente com o Passe de Amigo* e trabalha em conjunto em toda a variedade de desafios de jogo alegres e inquietantes.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1426210/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1426210/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Hazelight Studios"
+    ],
+    "publishers": [
+      "Electronic Arts"
+    ]
+  },
+  {
+    "steam_appid": 1237970,
+    "titulo": "Titanfall® 2",
+    "ano_lancamento": 2020,
+    "sinopse": "Inclui o conteúdo Digital Deluxe, o Jump Start Pack e a Pintura de Guerra personalizada Underground R-201 Carbine.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1237970/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1237970/library_hero.jpg",
+    "genres": [
+      "Ação"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Respawn Entertainment"
+    ],
+    "publishers": [
+      "Electronic Arts"
+    ]
+  },
+  {
+    "steam_appid": 250900,
+    "titulo": "The Binding of Isaac: Rebirth",
+    "ano_lancamento": 2014,
+    "sinopse": "The Binding of Isaac: Rebirth is a randomly generated action RPG shooter with heavy Rogue-like elements. Following Isaac on his journey players will find bizarre treasures that change Isaac’s form giving him super human abilities and enabling him to fight off droves of mysterious creatures, discover secrets and fight his way to safety.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/250900/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/250900/library_hero.jpg",
+    "genres": [
+      "Ação"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "Edmund McMillen",
+      "Nicalis, Inc."
+    ],
+    "publishers": [
+      "Nicalis, Inc."
+    ]
+  },
+  {
+    "steam_appid": 233860,
+    "titulo": "Kenshi",
+    "ano_lancamento": 2018,
+    "sinopse": "Um RPG de mundo aberto onde você controla grupos, com mecânicas para fazer o que quiser, sem história linear. Torne-se comerciante, ladrão, rebelde, chefe de guerra, aventureiro, fazendeiro, escravo ou comida de canibal. Treine seus aliados e transforme vítimas em guerreiros.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/233860/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/233860/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Estratégia",
+      "Indie",
+      "RPG",
+      "Simulação"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Lo-Fi Games"
+    ],
+    "publishers": [
+      "Lo-Fi Games"
+    ]
+  },
+  {
+    "steam_appid": 244210,
+    "titulo": "Assetto Corsa",
+    "ano_lancamento": 2014,
+    "sinopse": "Assetto Corsa v1.16 introduces the new &quot;Laguna Seca&quot; laser-scanned track, 7 new cars among which the eagerly awaited Alfa Romeo Giulia Quadrifoglio! Check the changelog for further info!",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/244210/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/244210/library_hero.jpg",
+    "genres": [
+      "Corridas",
+      "Desporto",
+      "Indie",
+      "Simulação"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Kunos Simulazioni"
+    ],
+    "publishers": [
+      "505 Games"
+    ]
+  },
+  {
+    "steam_appid": 1293830,
+    "titulo": "Forza Horizon 4",
+    "ano_lancamento": 2021,
+    "sinopse": "As estações dinâmicas mudam tudo no maior festival automobilístico do mundo. Aventura-te sozinho ou junta-te a outros para explorar a bela e histórica Grã-Bretanha num mundo aberto partilhado.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1293830/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1293830/library_hero.jpg",
+    "genres": [
+      "Corridas"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Playground Games"
+    ],
+    "publishers": [
+      "Xbox Game Studios"
+    ]
+  },
+  {
+    "steam_appid": 1551360,
+    "titulo": "Forza Horizon 5",
+    "ano_lancamento": 2021,
+    "sinopse": "Explora um mundo aberto de vibrantes paisagens mexicanas, com ação automobilística ilimitada e divertida e os melhores carros do mundo.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1551360/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1551360/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Aventura",
+      "Corridas",
+      "Desporto",
+      "Simulação"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Playground Games"
+    ],
+    "publishers": [
+      "Xbox Game Studios"
+    ]
+  },
+  {
+    "steam_appid": 322170,
+    "titulo": "Geometry Dash",
+    "ano_lancamento": 2014,
+    "sinopse": "Jump and fly your way through danger in this rhythm-based action platformer!",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/322170/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/322170/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Indie"
+    ],
+    "platforms": [
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "RobTop Games"
+    ],
+    "publishers": [
+      "RobTop Games"
+    ]
+  },
+  {
+    "steam_appid": 976730,
+    "titulo": "Halo: The Master Chief Collection",
+    "ano_lancamento": 2019,
+    "sinopse": "The Master Chief’s iconic journey includes six games, built for PC and collected in a single integrated experience. Whether you’re a long-time fan or meeting Spartan 117 for the first time, The Master Chief Collection is the definitive Halo gaming experience.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/976730/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/976730/library_hero.jpg",
+    "genres": [
+      "Ação"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "343 Industries",
+      "Bungie",
+      "Ruffian Games",
+      "Saber Interactive",
+      "Splash Damage"
+    ],
+    "publishers": [
+      "Xbox Game Studios"
+    ]
+  },
+  {
+    "steam_appid": 1240440,
+    "titulo": "Halo Infinite",
+    "ano_lancamento": 2021,
+    "sinopse": "From one of gaming's most iconic sagas, Halo is bigger than ever. Featuring an expansive open-world campaign and a dynamic free to play multiplayer experience. ",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1240440/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1240440/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Grátis para Jogar"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "343 Industries"
+    ],
+    "publishers": [
+      "Xbox Game Studios"
+    ]
+  },
+  {
+    "steam_appid": 361420,
+    "titulo": "ASTRONEER",
+    "ano_lancamento": 2019,
+    "sinopse": "Interage com estranhos mundos novos de uma forma única e tangível, moldando o próprio ambiente como se fosse barro nas tuas mãos. Trabalha sozinho ou em equipa para construir uma base, dominar a gestão de recursos e muito mais, neste sandbox espacial.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/361420/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/361420/library_hero.jpg",
+    "genres": [
+      "Aventura",
+      "Indie"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "System Era Softworks"
+    ],
+    "publishers": [
+      "System Era Softworks"
+    ]
+  },
+  {
+    "steam_appid": 632470,
+    "titulo": "Disco Elysium - The Final Cut",
+    "ano_lancamento": 2019,
+    "sinopse": "Disco Elysium - The Final Cut is a groundbreaking role playing game. You’re a detective with a unique skill system at your disposal and a whole city to carve your path across. Interrogate unforgettable characters, crack murders or take bribes. Become a hero or an absolute disaster of a human being.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/632470/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/632470/library_hero.jpg",
+    "genres": [
+      "RPG"
+    ],
+    "platforms": [
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "ZA/UM"
+    ],
+    "publishers": [
+      "ZA/UM"
+    ]
+  },
+  {
+    "steam_appid": 1794680,
+    "titulo": "Vampire Survivors",
+    "ano_lancamento": 2022,
+    "sinopse": "Acabe com milhares de criaturas noturnas e sobreviva até o amanhecer! Vampire Survivors é um jogo casual de terror gótico com elementos roguelite onde suas escolhas podem fazer você crescer rapidamente e aniquilar os milhares de monstros que aparecem pelo caminho.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1794680/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1794680/library_hero.jpg",
+    "genres": [
+      "Ação",
+      "Casual",
+      "Indie",
+      "RPG"
+    ],
+    "platforms": [
+      "macOS",
+      "Windows"
+    ],
+    "developers": [
+      "poncle"
+    ],
+    "publishers": [
+      "poncle"
+    ]
+  },
+  {
+    "steam_appid": 1057090,
+    "titulo": "Ori and the Will of the Wisps",
+    "ano_lancamento": 2020,
+    "sinopse": "Play the critically acclaimed masterpiece. Embark on a new journey in a vast, exotic world where you’ll encounter towering enemies and challenging puzzles on your quest to unravel Ori’s destiny.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/1057090/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/1057090/library_hero.jpg",
+    "genres": [
+      "Ação"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Moon Studios GmbH"
+    ],
+    "publishers": [
+      "Xbox Game Studios"
+    ]
+  },
+  {
+    "steam_appid": 387290,
+    "titulo": "Ori and the Blind Forest: Definitive Edition",
+    "ano_lancamento": 2016,
+    "sinopse": "“Ori and the Blind Forest” conta a história de um jovem espírito órfão destinado a ser herói, através de um jogo de ação e plataformas visualmente arrebatador, criado pelos Moon Studios.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/387290/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/387290/library_hero.jpg",
+    "genres": [
+      "Ação"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "Moon Studios GmbH"
+    ],
+    "publishers": [
+      "Xbox Game Studios"
+    ]
+  },
+  {
+    "steam_appid": 570940,
+    "titulo": "DARK SOULS™: REMASTERED",
+    "ano_lancamento": 2018,
+    "sinopse": "E então, o fogo irrompeu. Redescobre o jogo aclamado pela crítica e que forjou um novo género. Regressa a Lordran com uma magnífica remasterização com detalhes espantosos em alta definição e a 60 fps.",
+    "capa_url": "https://steamcdn-a.akamaihd.net/steam/apps/570940/library_600x900.jpg",
+    "banner_url": "https://steamcdn-a.akamaihd.net/steam/apps/570940/library_hero.jpg",
+    "genres": [
+      "Ação"
+    ],
+    "platforms": [
+      "Windows"
+    ],
+    "developers": [
+      "FromSoftware, Inc.",
+      "QLOC"
+    ],
+    "publishers": [
+      "Bandai Namco Entertainment",
+      "FromSoftware, Inc."
+    ]
+  }
+]

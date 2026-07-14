@@ -1,5 +1,6 @@
-"""Popula o banco com os dados de demonstração de db/seed.sql — agora com
-senhas reais (hash do Django). Idempotente: pode rodar mais de uma vez.
+"""Popula o banco com os dados de demonstração — agora com senhas reais (hash do
+Django) e com o **catálogo completo** dos ~100 jogos famosos da Steam, carregado
+do snapshot offline (`catalog/seed_data.py`, sem acessar a rede). Idempotente.
 
 Uso: python manage.py seed_demo
 Senha de todos os usuários de demonstração: senha123
@@ -7,10 +8,11 @@ Senha de todos os usuários de demonstração: senha123
 from datetime import date
 
 from django.contrib.auth import get_user_model
-from django.core.management.base import BaseCommand
+from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 
-from catalog.models import Developer, Game, Genre, Platform, Publisher
+from catalog import seed_data
+from catalog.models import Game
 from library.models import UserGame
 from social.models import Friendship, Notification, ReviewLike
 
@@ -23,57 +25,6 @@ USUARIOS = [
     ('Administrador', 'admin@gamelist.dev', 'admin', 'Curador do catálogo.'),
     ('Ana Souza', 'ana@gamelist.dev', 'comum', 'Caçadora de platinas e fã de indies.'),
     ('Bruno Lima', 'bruno@gamelist.dev', 'comum', 'Backlog eterno, mas um dia eu zero tudo.'),
-]
-
-GENEROS = ['Ação', 'RPG', 'Aventura', 'Indie', 'Simulação', 'Roguelike',
-           'Plataforma', 'Metroidvania']
-
-PLATAFORMAS = ['PC', 'PlayStation 5', 'PlayStation 4', 'Xbox Series X|S',
-               'Xbox One', 'Nintendo Switch']
-
-DEVELOPERS = ['FromSoftware', 'Supergiant Games', 'ConcernedApe', 'Team Cherry',
-              'Extremely OK Games']
-
-PUBLISHERS = ['Bandai Namco Entertainment', 'Supergiant Games', 'ConcernedApe',
-              'Team Cherry', 'Extremely OK Games']
-
-JOGOS = [
-    # (titulo, ano, sinopse, steam_appid, generos, plataformas, devs, pubs)
-    ('Elden Ring', 2022,
-     'RPG de ação em mundo aberto nas Terras Intermédias, criado por Hidetaka '
-     'Miyazaki e George R. R. Martin.',
-     1245620,
-     ['Ação', 'RPG'],
-     ['PC', 'PlayStation 5', 'PlayStation 4', 'Xbox Series X|S', 'Xbox One'],
-     ['FromSoftware'], ['Bandai Namco Entertainment']),
-    ('Hades', 2020,
-     'Roguelike de ação em que Zagreus tenta escapar do submundo grego, '
-     'desafiando o próprio pai, Hades.',
-     1145360,
-     ['Ação', 'Indie', 'Roguelike'],
-     ['PC', 'PlayStation 5', 'Xbox Series X|S', 'Nintendo Switch'],
-     ['Supergiant Games'], ['Supergiant Games']),
-    ('Stardew Valley', 2016,
-     'Simulador de fazenda: herde um terreno, cultive, crie animais e faça '
-     'parte da comunidade de Vale do Orvalho.',
-     413150,
-     ['Indie', 'Simulação'],
-     ['PC', 'PlayStation 4', 'Xbox One', 'Nintendo Switch'],
-     ['ConcernedApe'], ['ConcernedApe']),
-    ('Hollow Knight', 2017,
-     'Metroidvania sombrio no reino subterrâneo de Hallownest, habitado por '
-     'insetos e segredos.',
-     367520,
-     ['Aventura', 'Indie', 'Metroidvania'],
-     ['PC', 'PlayStation 4', 'Xbox One', 'Nintendo Switch'],
-     ['Team Cherry'], ['Team Cherry']),
-    ('Celeste', 2018,
-     'Plataforma de precisão: ajude Madeline a escalar a montanha Celeste e '
-     'enfrentar seus próprios demônios.',
-     504230,
-     ['Indie', 'Plataforma'],
-     ['PC', 'PlayStation 4', 'Xbox One', 'Nintendo Switch'],
-     ['Extremely OK Games'], ['Extremely OK Games']),
 ]
 
 LISTAS_PESSOAIS = [
@@ -120,29 +71,19 @@ class Command(BaseCommand):
                 user.save()
             users[email] = user
 
-        # Catálogo de referência ----------------------------------------------
-        genres = {n: Genre.objects.get_or_create(nome=n)[0] for n in GENEROS}
-        platforms = {n: Platform.objects.get_or_create(nome=n)[0] for n in PLATAFORMAS}
-        developers = {n: Developer.objects.get_or_create(nome=n)[0] for n in DEVELOPERS}
-        publishers = {n: Publisher.objects.get_or_create(nome=n)[0] for n in PUBLISHERS}
-
-        # Jogos publicados + junções -----------------------------------------
-        games = {}
-        for titulo, ano, sinopse, appid, gs, ps, ds, pbs in JOGOS:
-            game, _ = Game.objects.get_or_create(
-                steam_appid=appid,
-                defaults={
-                    'titulo': titulo,
-                    'ano_lancamento': ano,
-                    'sinopse': sinopse,
-                    'status_publicacao': Game.StatusPublicacao.PUBLICADO,
-                },
+        # Catálogo: 100 jogos famosos da Steam, do snapshot offline -----------
+        jogos_snapshot = seed_data.load_top_games()
+        if not jogos_snapshot:
+            raise CommandError(
+                'Snapshot do catálogo ausente (catalog/data/steam_top_games.json). '
+                'Gere-o com "python manage.py seed_steam_top" antes de semear.'
             )
-            game.genres.set([genres[n] for n in gs])
-            game.platforms.set([platforms[n] for n in ps])
-            game.developers.set([developers[n] for n in ds])
-            game.publishers.set([publishers[n] for n in pbs])
-            games[appid] = game
+        contagens = seed_data.apply_games(jogos_snapshot, update=False)
+        total_jogos = Game.objects.count()
+
+        # Lookup por appid dos jogos citados nas listas/extensões da demo.
+        appids_demo = {appid for _, appid, _ in LISTAS_PESSOAIS}
+        games = {appid: Game.objects.get(steam_appid=appid) for appid in appids_demo}
 
         # Listas pessoais (cobrem os 5 status + platina + steam_sync) --------
         for email, appid, campos in LISTAS_PESSOAIS:
@@ -176,6 +117,7 @@ class Command(BaseCommand):
             )
 
         self.stdout.write(self.style.SUCCESS(
-            'Seed concluído: 3 usuários (senha "%s"), %d jogos, listas pessoais '
-            'e dados das extensões.' % (SENHA_DEMO, len(games)),
+            'Seed concluído: 3 usuários (senha "%s"), %d jogos no catálogo '
+            '(%d novos), listas pessoais e dados das extensões.'
+            % (SENHA_DEMO, total_jogos, contagens['criados']),
         ))

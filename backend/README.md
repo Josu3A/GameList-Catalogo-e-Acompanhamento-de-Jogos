@@ -21,7 +21,7 @@ copy .env.example .env    # e preencha DB_PASSWORD (e demais valores se necessá
 # criar o banco (uma vez)
 psql -h localhost -p 5433 -U postgres -c "CREATE DATABASE gamelist;"
 
-# estrutura + dados de demonstração
+# estrutura + seed (3 usuários demo + catálogo dos 100 jogos famosos da Steam)
 .venv\Scripts\python manage.py migrate
 .venv\Scripts\python manage.py seed_demo
 
@@ -30,6 +30,26 @@ psql -h localhost -p 5433 -U postgres -c "CREATE DATABASE gamelist;"
 ```
 
 Testes: `.venv\Scripts\python manage.py test`
+
+## Carregar o catálogo (100 jogos famosos da Steam)
+
+Não há nada a configurar em `settings.py`: o catálogo vem de um **snapshot versionado**
+(`catalog/data/steam_top_games.json`) lido direto pelo app `catalog`. "Carregar" é só rodar
+um comando — todos são **idempotentes** (casam por `steam_appid`, podem rodar de novo):
+
+```powershell
+# forma padrão: já embutido no seed (usuários demo + os 100 jogos, offline, sem rede)
+.venv\Scripts\python manage.py seed_demo
+
+# só o catálogo (sem os usuários/listas de demonstração), do snapshot offline
+.venv\Scripts\python manage.py seed_steam_top --offline
+
+# opcional: buscar/atualizar os 100 direto da Steam (online, ~2 min) e refazer o snapshot
+.venv\Scripts\python manage.py seed_steam_top            # cria/pula
+.venv\Scripts\python manage.py seed_steam_top --update   # atualiza os existentes
+```
+
+Ou seja, num ambiente novo o catálogo entra sozinho no passo `seed_demo` do Setup acima.
 
 ## Usuários de demonstração (seed_demo)
 
@@ -67,7 +87,8 @@ Filtros úteis: `/api/games/?search=hades`, `?genero=<id>`, `?plataforma=<id>`,
 
 - `config/` — settings (lê `.env`), rotas raiz
 - `accounts/` — modelo `User` customizado (tabela `users`), auth por sessão, permissões de papel
-- `catalog/` — `Game` + taxonomias normalizadas (gêneros, plataformas, devs, publishers) e `Achievement`
+- `catalog/` — `Game` + taxonomias normalizadas (gêneros, plataformas, devs, publishers) e
+  `Achievement`; comando `seed_steam_top` + snapshot `data/steam_top_games.json` (100 jogos)
 - `library/` — `UserGame` (lista pessoal), perfil público, comando `seed_demo`
 - `social/` — modelos das extensões futuras (amizades, curtidas, listas, notificações) — **sem endpoints**
 

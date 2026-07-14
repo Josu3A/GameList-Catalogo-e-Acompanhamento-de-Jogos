@@ -1,8 +1,10 @@
 """Critérios de aceitação da lista pessoal e do perfil (CONTEXTO_PROJETO §4)."""
+from io import StringIO
 from unittest.mock import patch
 
 from django.contrib.auth import get_user_model
-from django.test import override_settings
+from django.core.management import call_command
+from django.test import TestCase, override_settings
 from rest_framework import status
 from rest_framework.test import APITestCase
 
@@ -232,3 +234,30 @@ class SteamSyncTests(APITestCase):
             'game_id': self.hades.id,
         })
         self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)
+
+
+class SeedDemoTests(TestCase):
+    """O seed inicializa o banco com o catálogo dos 100 jogos (offline) + demo."""
+
+    def test_seed_demo_popula_catalogo_offline_e_dados_demo(self):
+        call_command('seed_demo', stdout=StringIO(), stderr=StringIO())
+
+        # 100 jogos do snapshot versionado, todos publicados (sem acessar a rede).
+        self.assertEqual(Game.objects.count(), 100)
+        self.assertEqual(
+            Game.objects.filter(status_publicacao=Game.StatusPublicacao.PUBLICADO).count(),
+            100,
+        )
+        # Um jogo-chave da demo existe e tem taxonomia ligada.
+        elden = Game.objects.get(steam_appid=1245620)
+        self.assertTrue(elden.genres.exists())
+
+        # Usuários + listas pessoais + a platina da Ana (Hades).
+        self.assertEqual(User.objects.count(), 3)
+        self.assertTrue(UserGame.objects.filter(platinado=True).exists())
+
+    def test_seed_demo_idempotente(self):
+        call_command('seed_demo', stdout=StringIO(), stderr=StringIO())
+        call_command('seed_demo', stdout=StringIO(), stderr=StringIO())
+        self.assertEqual(Game.objects.count(), 100)
+        self.assertEqual(User.objects.count(), 3)
