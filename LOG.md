@@ -1,7 +1,30 @@
-# Log de Desenvolvimento — GameList
+# Log de Desenvolvimento — GameCheck
 
 > Registro cronológico do que foi feito no projeto, com decisões e resultados de
 > verificação. Entradas mais recentes no topo.
+
+---
+
+## Renomeação da pasta/arquivos `GameList` → `GameCheck`
+
+### Objetivo
+
+Alinhar o nome do projeto no disco à marca já adotada. No [rebrand anterior](#rebrand-gamecheck-logo-tratada-nome-paleta-e-fundo-do-app)
+só a marca visível (frontend) havia mudado; a pasta, o arquivo `.dbml` e as menções internas
+continuavam como `GameList`.
+
+### O que mudou
+
+- **Pasta raiz** `GameList/` → `GameCheck/`.
+- **Arquivo** `GameList.dbml` → `GameCheck.dbml` (e todas as referências a ele em
+  [README.md](README.md), [ESQUEMA_DADOS.md](ESQUEMA_DADOS.md), [db/schema.sql](db/schema.sql) e
+  neste log).
+- **Comentários/docstrings/títulos** com "GameList" trocados para "GameCheck" em: `docker-compose.yml`,
+  `backend/Dockerfile`, `frontend/Dockerfile`, `frontend/nginx.conf`, `backend/config/settings.py`,
+  `backend/config/urls.py`, `backend/README.md`, `CONTEXTO_PROJETO.md`, `FRONTEND_TELAS.md`,
+  `DOCKER.md`, `ESQUEMA_DADOS.md`, `db/schema.sql`, `db/seed.sql` e o `.dbml`.
+- **Sem impacto funcional**: nenhuma dessas ocorrências era caminho absoluto, nome de serviço/container
+  Docker, hostname ou import — apenas texto. Entradas históricas deste log foram preservadas.
 
 ---
 
@@ -29,8 +52,9 @@ para casar com ela.
     sobre um card com gradiente (`#16172E`→`#0A0B1B`) e cantos arredondados (~22,5%).
 - **Nome GameList → GameCheck** — [Navbar.tsx](frontend/src/components/Navbar.tsx) (ícone genérico
   `IconDeviceGamepad2` → `<img src="/logo.png">` + texto "GameCheck"); título e favicons em
-  [index.html](frontend/index.html); H1 do [frontend/README.md](frontend/README.md). (Nome do
-  pacote/pasta/repo `GameList` **não** mudou — só a marca visível.)
+  [index.html](frontend/index.html); H1 do [frontend/README.md](frontend/README.md). (Nesta etapa,
+  o nome do pacote/pasta/repo `GameList` **não** mudou — só a marca visível; a pasta e os
+  arquivos foram renomeados para `GameCheck` depois — ver entrada no topo do log.)
 - **Cores da marca** em [theme.ts](frontend/src/theme.ts) — paleta **`brand`** (10 tons) derivada
   do gradiente violeta `#7137F3`→azul `#1584FD` do "G", como `primaryColor` (`primaryShade`
   `{ light: 6, dark: 6 }`); `defaultGradient` `#7137F3`→`#1584FD` (135°) espelhando o "G"→seta.
@@ -653,7 +677,7 @@ pessoal restrito ao dono e perfil público com destaque de platinas.
 ### Objetivo
 
 Traduzir o esquema de dados já modelado ([ESQUEMA_DADOS.md](ESQUEMA_DADOS.md) e
-[GameList.dbml](GameList.dbml)) para DDL do PostgreSQL, gerando os scripts que criam o
+[GameCheck.dbml](GameCheck.dbml)) para DDL do PostgreSQL, gerando os scripts que criam o
 banco do zero, e validar tudo num servidor real.
 
 ### Decisões tomadas (confirmadas antes da implementação)

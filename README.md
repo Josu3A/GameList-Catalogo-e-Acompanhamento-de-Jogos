@@ -103,7 +103,7 @@ GameCheck/
 ## Documentação do projeto
 
 - [CONTEXTO_PROJETO.md](CONTEXTO_PROJETO.md) — ideia, requisitos e decisões da atividade
-- [ESQUEMA_DADOS.md](ESQUEMA_DADOS.md) / [GameList.dbml](GameList.dbml) — modelagem do banco
+- [ESQUEMA_DADOS.md](ESQUEMA_DADOS.md) / [GameCheck.dbml](GameCheck.dbml) — modelagem do banco
 - [FRONTEND_TELAS.md](FRONTEND_TELAS.md) — mapa das telas do frontend
 - [DOCKER.md](DOCKER.md) — detalhes da execução com Docker
 - [LOG.md](LOG.md) — log cronológico de desenvolvimento

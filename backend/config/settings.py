@@ -1,5 +1,5 @@
 """
-Configurações do projeto GameList (backend Django + DRF).
+Configurações do projeto GameCheck (backend Django + DRF).
 
 Valores sensíveis/ambiente vêm do arquivo .env (ver .env.example).
 Banco: PostgreSQL 18 local, porta 5433 (ver LOG.md do repositório).

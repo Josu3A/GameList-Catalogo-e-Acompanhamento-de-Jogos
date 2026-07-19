@@ -1,4 +1,4 @@
-# Telas do Frontend — GameList
+# Telas do Frontend — GameCheck
 
 > Planejamento das telas da SPA React, derivado do backend já entregue
 > ([LOG.md](LOG.md)) e do modelo de dados ([ESQUEMA_DADOS.md](ESQUEMA_DADOS.md)).

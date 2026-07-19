@@ -1,6 +1,6 @@
-# GameList — Backend (Django + DRF)
+# GameCheck — Backend (Django + DRF)
 
-API REST do GameList com Django 5.2 LTS, Django REST Framework e PostgreSQL. O **Django Admin**
+API REST do GameCheck com Django 5.2 LTS, Django REST Framework e PostgreSQL. O **Django Admin**
 (`/admin/`) é o painel do administrador para o CRUD do catálogo.
 
 > A forma mais simples de subir tudo é com **Docker** — veja o [README da raiz](../README.md).

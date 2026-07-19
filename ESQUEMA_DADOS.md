@@ -1,4 +1,4 @@
-# Esquema de Dados — GameList
+# Esquema de Dados — GameCheck
 
 > Modelo relacional da aplicação. Projetado para ser **normalizado** e **aberto a
 > extensões** (notadamente a integração com a Steam), mantendo o MVP obrigatório
@@ -424,5 +424,5 @@ Legenda de cardinalidade:
 
 > As tabelas `publishers`/`game_publishers`, `review_likes`, `lists`/`list_items` e
 > `notifications` foram acrescentadas após o diagrama ASCII acima; ver §2 e §4 para o
-> detalhe dos campos. Para o diagrama visual atualizado, gere a partir de `GameList.dbml`
+> detalhe dos campos. Para o diagrama visual atualizado, gere a partir de `GameCheck.dbml`
 > em https://dbdiagram.io.

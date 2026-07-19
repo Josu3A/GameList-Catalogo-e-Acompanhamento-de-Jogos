@@ -1,4 +1,4 @@
-# Frontend GameList — build Vite/React e serve o SPA estático via nginx.
+# Frontend GameCheck — build Vite/React e serve o SPA estático via nginx.
 
 # --- Estágio 1: build ------------------------------------------------------
 FROM node:20-alpine AS build

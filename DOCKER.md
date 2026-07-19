@@ -1,4 +1,4 @@
-# GameList — Execução com Docker
+# GameCheck — Execução com Docker
 
 Sobe os três serviços do projeto em containers: **PostgreSQL**, **backend**
 (Django + DRF) e **frontend** (SPA React/Vite servido por nginx).
@@ -9,7 +9,7 @@ Sobe os três serviços do projeto em containers: **PostgreSQL**, **backend**
 
 ## Subir tudo
 
-Na pasta `GameList/`:
+Na pasta `GameCheck/`:
 
 ```bash
 docker compose up --build

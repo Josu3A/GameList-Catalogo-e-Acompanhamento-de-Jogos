@@ -1,9 +1,9 @@
 // ============================================================
-// GameList — Esquema de Dados (DBML)
+// GameCheck — Esquema de Dados (DBML)
 // Cole em https://dbdiagram.io para gerar o diagrama visual.
 // ============================================================
 
-Project GameList {
+Project GameCheck {
   database_type: 'PostgreSQL'
   Note: '''
     Catálogo e acompanhamento de jogos (estilo MyAnimeList).

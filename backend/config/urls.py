@@ -1,4 +1,4 @@
-"""Rotas raiz do projeto GameList."""
+"""Rotas raiz do projeto GameCheck."""
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin

@@ -1,5 +1,5 @@
 -- ============================================================================
--- GameList — Seed (dados de demonstração)
+-- GameCheck — Seed (dados de demonstração)
 -- ============================================================================
 -- Rodar DEPOIS de db/schema.sql, em banco recém-criado:
 --   psql -U postgres -d gamelist -f db/seed.sql

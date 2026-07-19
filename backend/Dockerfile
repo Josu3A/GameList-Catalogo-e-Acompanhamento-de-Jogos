@@ -1,4 +1,4 @@
-# Backend GameList — Django 5.2 + DRF
+# Backend GameCheck — Django 5.2 + DRF
 # Wheels binários (psycopg[binary], Pillow) já trazem libpq/libjpeg, então
 # não é preciso instalar pacotes de sistema (imagem enxuta).
 FROM python:3.12-slim

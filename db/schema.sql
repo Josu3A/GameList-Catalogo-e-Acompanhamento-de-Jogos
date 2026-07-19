@@ -1,7 +1,7 @@
 -- ============================================================================
--- GameList — Schema PostgreSQL
+-- GameCheck — Schema PostgreSQL
 -- ============================================================================
--- Fonte do modelo: ESQUEMA_DADOS.md / GameList.dbml
+-- Fonte do modelo: ESQUEMA_DADOS.md / GameCheck.dbml
 --
 -- Uso:
 --   1. Criar o banco (uma vez):   CREATE DATABASE gamelist;

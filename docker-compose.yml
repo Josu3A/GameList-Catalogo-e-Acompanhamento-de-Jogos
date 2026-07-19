@@ -1,4 +1,4 @@
-# GameList — orquestração dos 3 serviços: PostgreSQL + backend (Django) + frontend (SPA).
+# GameCheck — orquestração dos 3 serviços: PostgreSQL + backend (Django) + frontend (SPA).
 #
 # Subir tudo:      docker compose up --build
 # Acessar:         Frontend -> http://localhost:3000

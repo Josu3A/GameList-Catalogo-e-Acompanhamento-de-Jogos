@@ -1,4 +1,4 @@
-# Contexto do Projeto — GameList (Atividade 03 CRUD)
+# Contexto do Projeto — GameCheck (Atividade 03 CRUD)
 
 > Este documento resume a ideia geral do projeto e as decisões já tomadas, para dar contexto
 > completo ao Claude Code antes de começar a implementação. Trata-se de uma atividade
@@ -17,7 +17,7 @@ domínio, desde que atenda a estes requisitos obrigatórios:
 
 ## 2. Ideia geral do projeto
 
-O projeto se chama (provisoriamente) **GameList**: uma aplicação no estilo **MyAnimeList**,
+O projeto se chama **GameCheck**: uma aplicação no estilo **MyAnimeList**,
 mas para jogos, com uma pitada de rede social (parecido com Letterboxd/Backloggd no
 espírito). A lógica central é:
 
