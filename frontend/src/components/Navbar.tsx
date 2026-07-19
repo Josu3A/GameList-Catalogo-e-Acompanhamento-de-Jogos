@@ -10,7 +10,6 @@ import {
 } from '@mantine/core';
 import {
   IconBell,
-  IconDeviceGamepad2,
   IconList,
   IconLogout,
   IconSettings,
@@ -47,9 +46,15 @@ export function Navbar() {
           style={{ textDecoration: 'none', color: 'inherit' }}
           renderRoot={(props) => <Link to="/" {...props} />}
         >
-          <IconDeviceGamepad2 size={26} />
+          <img
+            src="/logo.png"
+            alt="GameCheck"
+            width={30}
+            height={30}
+            style={{ display: 'block' }}
+          />
           <Text fw={700} size="lg">
-            GameList
+            GameCheck
           </Text>
         </Group>
         <Button component={Link} to="/games" variant="subtle" size="sm">

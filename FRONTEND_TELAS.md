@@ -3,7 +3,7 @@
 > Planejamento das telas da SPA React, derivado do backend já entregue
 > ([LOG.md](LOG.md)) e do modelo de dados ([ESQUEMA_DADOS.md](ESQUEMA_DADOS.md)).
 >
-> **✅ Implementado em 2026-07-11** — a SPA (Vite + React + TS + Mantine) está em
+> — a SPA (Vite + React + TS + Mantine) está em
 > [frontend/](frontend/); todas as telas abaixo existem. Como rodar:
 > [frontend/README.md](frontend/README.md). Detalhes da entrega: [LOG.md](LOG.md).
 
@@ -29,7 +29,7 @@
 | `/` | Home / destaques | `GET /api/games/` | Vitrine de capas; opcional, pode redirecionar p/ `/games` |
 | `/games` | Catálogo | `GET /api/games/` (busca + filtros) | Só `publicado` p/ não-admin; filtro por gênero/plataforma; paginação |
 | `/games/:id` | Detalhe do jogo | `GET /api/games/:id/` | Sinopse, gêneros, plataformas, dev/publisher, ano, banner/capa |
-| `/users/:slug` | Perfil público | `GET /api/profiles/:id/` | URL mostra o **nome** (id trafega via router state, não na URL — ver [LOG.md](LOG.md) 2026-07-11); lista + **destaque de platinas**; perfil privado → 404 |
+| `/users/:slug` | Perfil público | `GET /api/profiles/:id/` | URL mostra o **nome** (id trafega via router state, não na URL — ver [LOG.md](LOG.md)); lista + **destaque de platinas**; perfil privado → 404 |
 
 ### 1.2 Usuário comum (autenticado)
 
@@ -38,7 +38,7 @@
 | `/my-list` | Minha lista | `GET /api/my-games/` | Abas/filtro por status (jogando, completo, quero_jogar, pausado, abandonado); ordenar por nota/horas |
 | (modal) | Adicionar/editar item | `POST/PATCH/DELETE /api/my-games/` | status, nota (0–10), horas, datas início/fim, `platinado`, `review`. Aberto do detalhe do jogo ou da lista |
 | `/games/:id` → botão | "Adicionar à minha lista" | `POST /api/my-games/` | Reaproveita o modal acima |
-| `/settings/profile` | Editar perfil | `PATCH /api/auth/me/` | nome, bio, **avatar por upload** (arquivo, não URL — JPG/PNG/WEBP/GIF até 2 MB, com preview e "remover"), toggle `perfil_publico`. O `avatar_url` da resposta é a URL de mídia da foto (ver [LOG.md](LOG.md) 2026-07-13) |
+| `/settings/profile` | Editar perfil | `PATCH /api/auth/me/` | nome, bio, **avatar por upload** (arquivo, não URL — JPG/PNG/WEBP/GIF até 2 MB, com preview e "remover"), toggle `perfil_publico`. O `avatar_url` da resposta é a URL de mídia da foto (ver [LOG.md](LOG.md)) |
 | `/settings/account` | Conta (email/senha) | *(a confirmar se há endpoint)* | Opcional; talvez só via Django Admin no MVP |
 
 ### 1.3 Admin (React + Django Admin)
@@ -62,8 +62,7 @@
 ## 2. Esqueleto social (telas navegáveis)
 
 Estas telas entram como estrutura/navegação. Os endpoints de que dependem **já existem**
-(ver §3, implementada em 2026-07-11), então podem ser ligadas de fato — não ficam mais só
-como placeholder.
+(ver §3), então podem ser ligadas de fato — não ficam mais só como placeholder.
 
 | Rota | Tela | Depende de |
 |---|---|---|
@@ -76,11 +75,11 @@ como placeholder.
 
 ---
 
-## 3. Backend social — **✅ implementado** (2026-07-11)
+## 3. Backend social — **✅ implementado**
 
 Os modelos de `social/` já existiam; os **endpoints, serializers e permissões** foram
-implementados em [backend/social/](backend/social/) (ver [LOG.md](LOG.md), entrada de
-2026-07-11). Abaixo, o que cada recurso expõe hoje. Nenhuma mudança de schema foi necessária.
+implementados em [backend/social/](backend/social/) (ver [LOG.md](LOG.md)). Abaixo, o que
+cada recurso expõe hoje. Nenhuma mudança de schema foi necessária.
 
 ### 3.1 Amigos (`friendships`) ✅
 - **Endpoints:** `POST /api/friendships/` `{friend_id}` (enviar pedido); `GET /api/friendships/`
@@ -119,7 +118,7 @@ implementados em [backend/social/](backend/social/) (ver [LOG.md](LOG.md), entra
 - **Serializers/permissões DRF** de cada recurso no padrão dos apps existentes.
 - **Perfil:** `GET /api/profiles/:id/` agora traz `amizade`
   (`eu`/`amigos`/`pedido_enviado`/`pedido_recebido`/`nenhum`/`null`) e `listas_publicas`.
-- **Steam** — **✅ implementada em 2026-07-13** (ver [LOG.md](LOG.md)): botões de login/vínculo
+- **Steam** — **✅ implementada** (ver [LOG.md](LOG.md)): botões de login/vínculo
   por Steam (OpenID), autofill do catálogo pela Storefront (botão "Buscar da Steam" no form de
   admin) e sync de biblioteca + conquistas pela Web API (perfil: "Sincronizar biblioteca";
   detalhe do jogo: "Sincronizar conquistas"). Detalhes em

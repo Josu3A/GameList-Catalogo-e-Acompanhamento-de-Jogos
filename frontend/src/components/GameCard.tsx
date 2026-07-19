@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { AspectRatio, Card, Image, Stack, Text } from '@mantine/core';
+import { AspectRatio, Card, Group, Image, Stack, Text } from '@mantine/core';
 import { IconDeviceGamepad2 } from '@tabler/icons-react';
 import type { GameSummary } from '../types';
 
@@ -56,7 +56,16 @@ export function GameCard({ game, badge }: GameCardProps) {
   );
 }
 
-export function EmptyState({ title, description }: { title: string; description?: string }) {
+export function EmptyState({
+  title,
+  description,
+  action,
+}: {
+  title: string;
+  description?: string;
+  /** Botão(ões) de ação, ex.: "Adicionar jogo" — para a tela não ficar num beco sem saída. */
+  action?: React.ReactNode;
+}) {
   return (
     <Stack align="center" py="xl" gap="xs">
       <IconDeviceGamepad2 size={48} opacity={0.4} />
@@ -65,6 +74,11 @@ export function EmptyState({ title, description }: { title: string; description?
         <Text size="sm" c="dimmed" ta="center" maw={420}>
           {description}
         </Text>
+      )}
+      {action && (
+        <Group justify="center" mt="xs">
+          {action}
+        </Group>
       )}
     </Stack>
   );

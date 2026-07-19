@@ -12,10 +12,12 @@ import {
   TextInput,
   Title,
 } from '@mantine/core';
+import { DateInput } from '@mantine/dates';
 import { useForm } from '@mantine/form';
 import { notifications } from '@mantine/notifications';
 import { IconBrandSteam } from '@tabler/icons-react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import dayjs from 'dayjs';
 import {
   createGame,
   getGame,
@@ -29,6 +31,14 @@ import type { NamedRef } from '../../types';
 
 function toOptions(items: NamedRef[] | undefined) {
   return (items ?? []).map((it) => ({ value: String(it.id), label: it.nome }));
+}
+
+function toDate(iso: string | null | undefined): Date | null {
+  return iso ? new Date(`${iso}T00:00:00`) : null;
+}
+
+function toISO(date: Date | null): string | null {
+  return date ? dayjs(date).format('YYYY-MM-DD') : null;
 }
 
 export function AdminGameFormPage() {
@@ -55,9 +65,11 @@ export function AdminGameFormPage() {
       capa_url: '',
       banner_url: '',
       ano_lancamento: '' as number | string,
+      data_lancamento: null as Date | null,
       sinopse: '',
       status_publicacao: 'rascunho' as 'rascunho' | 'publicado',
       steam_appid: '' as number | string,
+      rawg_id: '' as number | string,
       genre_ids: [] as string[],
       platform_ids: [] as string[],
       developer_ids: [] as string[],
@@ -77,9 +89,11 @@ export function AdminGameFormPage() {
       capa_url: g.capa_url ?? '',
       banner_url: g.banner_url ?? '',
       ano_lancamento: g.ano_lancamento ?? '',
+      data_lancamento: toDate(g.data_lancamento),
       sinopse: g.sinopse ?? '',
       status_publicacao: g.status_publicacao,
       steam_appid: g.steam_appid ?? '',
+      rawg_id: g.rawg_id ?? '',
       genre_ids: g.genres.map((x) => String(x.id)),
       platform_ids: g.platforms.map((x) => String(x.id)),
       developer_ids: g.developers.map((x) => String(x.id)),
@@ -106,15 +120,22 @@ export function AdminGameFormPage() {
         titulo: data.titulo || form.values.titulo,
         sinopse: data.sinopse ?? '',
         ano_lancamento: data.ano_lancamento ?? '',
+        data_lancamento: toDate(data.data_lancamento),
         capa_url: data.capa_url ?? '',
         banner_url: data.banner_url ?? '',
         steam_appid: data.steam_appid,
+        rawg_id: data.rawg_id ?? '',
         genre_ids: data.genres.map((g) => String(g.id)),
         platform_ids: data.platforms.map((g) => String(g.id)),
         developer_ids: data.developers.map((g) => String(g.id)),
         publisher_ids: data.publishers.map((g) => String(g.id)),
       });
-      notifications.show({ color: 'green', message: 'Dados da Steam carregados. Revise e salve.' });
+      notifications.show({
+        color: data.data_lancamento ? 'green' : 'yellow',
+        message: data.data_lancamento
+          ? 'Dados da Steam e data de lançamento (RAWG) carregados. Revise e salve.'
+          : 'Dados da Steam carregados. Revise e salve (data de lançamento não encontrada na RAWG).',
+      });
     },
     onError: (err) => notifications.show({ color: 'red', message: apiErrorMessage(err) }),
   });
@@ -135,9 +156,11 @@ export function AdminGameFormPage() {
         capa_url: values.capa_url.trim() || null,
         banner_url: values.banner_url.trim() || null,
         ano_lancamento: values.ano_lancamento === '' ? null : Number(values.ano_lancamento),
+        data_lancamento: toISO(values.data_lancamento),
         sinopse: values.sinopse.trim() || null,
         status_publicacao: values.status_publicacao,
         steam_appid: values.steam_appid === '' ? null : Number(values.steam_appid),
+        rawg_id: values.rawg_id === '' ? null : Number(values.rawg_id),
         genre_ids: values.genre_ids.map(Number),
         platform_ids: values.platform_ids.map(Number),
         developer_ids: values.developer_ids.map(Number),
@@ -162,13 +185,23 @@ export function AdminGameFormPage() {
         <form onSubmit={form.onSubmit((v) => mutation.mutate(v))}>
           <Stack>
             <TextInput label="Título" withAsterisk {...form.getInputProps('titulo')} />
-            <Group grow>
+            <Group grow align="flex-end">
               <NumberInput
                 label="Ano de lançamento"
                 min={1950}
                 max={2100}
                 {...form.getInputProps('ano_lancamento')}
               />
+              <div>
+                <DateInput
+                  label="Data de lançamento"
+                  description={form.values.rawg_id ? `RAWG #${form.values.rawg_id}` : undefined}
+                  placeholder="Vem da RAWG ao buscar da Steam"
+                  valueFormat="DD/MM/YYYY"
+                  clearable
+                  {...form.getInputProps('data_lancamento')}
+                />
+              </div>
               <Select
                 label="Status de publicação"
                 data={[

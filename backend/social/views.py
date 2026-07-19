@@ -1,6 +1,7 @@
+from django.contrib.auth import get_user_model
 from django.db import transaction
 from django.db.models import Count, Exists, F, OuterRef, Prefetch, Q
-from rest_framework import status, viewsets
+from rest_framework import generics, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
@@ -16,7 +17,10 @@ from .serializers import (
     ListSerializer,
     NotificationSerializer,
     ReviewSerializer,
+    UserSearchSerializer,
 )
+
+User = get_user_model()
 
 
 # --- Notificações (respeitam o CHECK de referência exatamente-uma, §4.4) -----
@@ -90,6 +94,29 @@ class FriendshipViewSet(viewsets.ModelViewSet):
 
     # destroy (DELETE) = recusar/cancelar (pendente) ou desfazer (aceito).
     # Qualquer um dos dois participantes pode remover a linha.
+
+
+class UserSearchView(generics.ListAPIView):
+    """Busca usuários por nome para enviar pedidos de amizade (§3.1).
+
+    Só encontra perfis públicos (perfil privado não é descoberto, como no
+    ProfileView) e nunca inclui o próprio usuário. Cada resultado traz o estado
+    da amizade com quem busca, para o botão escolher entre adicionar/aguardar.
+    """
+
+    serializer_class = UserSearchSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        termo = (self.request.query_params.get('q') or '').strip()
+        if len(termo) < 2:
+            return User.objects.none()
+        return (
+            User.objects
+            .filter(perfil_publico=True, nome__icontains=termo)
+            .exclude(pk=self.request.user.pk)
+            .order_by('nome')
+        )
 
 
 # --- Reviews + curtidas -----------------------------------------------------

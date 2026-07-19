@@ -61,6 +61,7 @@ class Game(models.Model):
     capa_url = models.URLField(max_length=500, blank=True, null=True)
     banner_url = models.URLField(max_length=500, blank=True, null=True)
     ano_lancamento = models.IntegerField(blank=True, null=True)
+    data_lancamento = models.DateField(blank=True, null=True)
     sinopse = models.TextField(blank=True, null=True)
     status_publicacao = models.CharField(
         max_length=20,
@@ -68,6 +69,7 @@ class Game(models.Model):
         default=StatusPublicacao.RASCUNHO,
     )
     steam_appid = models.IntegerField(unique=True, blank=True, null=True)
+    rawg_id = models.IntegerField(unique=True, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

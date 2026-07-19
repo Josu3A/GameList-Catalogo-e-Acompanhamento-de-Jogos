@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   ActionIcon,
   Badge,
+  Button,
   Card,
   Group,
   Image,
@@ -19,6 +20,7 @@ import {
   IconDeviceGamepad2,
   IconDotsVertical,
   IconEdit,
+  IconPlus,
   IconStarFilled,
   IconTrash,
   IconTrophyFilled,
@@ -110,6 +112,11 @@ export function MyListPage() {
         <EmptyState
           title="Nenhum jogo aqui ainda"
           description="Navegue pelo catálogo e adicione jogos à sua lista."
+          action={
+            <Button component={Link} to="/games" leftSection={<IconPlus size={16} />}>
+              Explorar catálogo
+            </Button>
+          }
         />
       ) : (
         <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }}>

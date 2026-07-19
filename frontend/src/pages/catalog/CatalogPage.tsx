@@ -21,8 +21,8 @@ const PAGE_SIZE = 20;
 const ORDERING = [
   { value: 'titulo', label: 'Título (A→Z)' },
   { value: '-titulo', label: 'Título (Z→A)' },
-  { value: '-ano_lancamento', label: 'Mais recentes' },
-  { value: 'ano_lancamento', label: 'Mais antigos' },
+  { value: '-data_ordenacao', label: 'Mais recentes' },
+  { value: 'data_ordenacao', label: 'Mais antigos' },
 ];
 
 export function CatalogPage() {

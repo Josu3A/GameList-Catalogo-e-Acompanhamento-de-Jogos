@@ -153,6 +153,12 @@ STEAM_API_KEY = os.environ.get('STEAM_API_KEY', '')
 
 FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://localhost:5173')
 
+# Integração com a RAWG (carrossel de "Próximos Lançamentos" da Home,
+# ver catalog/rawg.py). Chave simples via query param (sem OAuth), registrar
+# em rawg.io/apidocs. Fica só aqui, nunca no frontend. Sem ela, o endpoint
+# degrada para lista vazia.
+RAWG_API_KEY = os.environ.get('RAWG_API_KEY', '')
+
 
 # Internationalization
 

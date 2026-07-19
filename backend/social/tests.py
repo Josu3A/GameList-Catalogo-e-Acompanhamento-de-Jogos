@@ -98,6 +98,52 @@ class AmigosTests(APITestCase):
         self.assertEqual(remocao.status_code, status.HTTP_404_NOT_FOUND)
 
 
+class BuscaAmigosTests(APITestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.ana = User.objects.create_user(
+            email='ana@example.com', nome='Ana Souza', password='senha-forte-123',
+        )
+        cls.bruno = User.objects.create_user(
+            email='bruno@example.com', nome='Bruno Lima', password='senha-forte-123',
+        )
+        cls.recluso = User.objects.create_user(
+            email='recluso@example.com', nome='Ana Reclusa',
+            password='senha-forte-123', perfil_publico=False,
+        )
+
+    def test_busca_exige_autenticacao(self):
+        resp = self.client.get('/api/users/search/', {'q': 'ana'})
+        self.assertEqual(resp.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_busca_por_nome_ignora_a_si_mesmo_e_perfis_privados(self):
+        self.client.force_authenticate(self.ana)
+        resp = self.client.get('/api/users/search/', {'q': 'ana'})
+        self.assertEqual(resp.status_code, status.HTTP_200_OK)
+        nomes = [r['nome'] for r in resp.data['results']]
+        self.assertNotIn('Ana Souza', nomes)     # não retorna a si mesmo
+        self.assertNotIn('Ana Reclusa', nomes)   # perfil privado não é descoberto
+
+    def test_busca_por_nome_traz_estado_da_amizade(self):
+        Friendship.objects.create(user=self.ana, friend=self.bruno)
+        self.client.force_authenticate(self.ana)
+        resp = self.client.get('/api/users/search/', {'q': 'bruno'})
+        self.assertEqual(len(resp.data['results']), 1)
+        alvo = resp.data['results'][0]
+        self.assertEqual(alvo['nome'], 'Bruno Lima')
+        self.assertEqual(alvo['amizade'], 'pedido_enviado')
+
+    def test_busca_nao_encontra_por_email(self):
+        self.client.force_authenticate(self.ana)
+        resp = self.client.get('/api/users/search/', {'q': 'bruno@example.com'})
+        self.assertEqual(len(resp.data['results']), 0)
+
+    def test_busca_curta_nao_retorna_nada(self):
+        self.client.force_authenticate(self.ana)
+        resp = self.client.get('/api/users/search/', {'q': 'a'})
+        self.assertEqual(len(resp.data['results']), 0)
+
+
 class ReviewsCurtidasTests(APITestCase):
     @classmethod
     def setUpTestData(cls):

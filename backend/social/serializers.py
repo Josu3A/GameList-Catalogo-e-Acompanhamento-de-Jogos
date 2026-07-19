@@ -20,6 +20,20 @@ class UserSummarySerializer(serializers.ModelSerializer):
         fields = ('id', 'nome', 'avatar_url')
 
 
+class UserSearchSerializer(UserSummarySerializer):
+    """UserSummary + estado da amizade com quem busca (alimenta o botão)."""
+
+    amizade = serializers.SerializerMethodField()
+
+    class Meta(UserSummarySerializer.Meta):
+        fields = UserSummarySerializer.Meta.fields + ('amizade',)
+
+    def get_amizade(self, obj):
+        request = self.context.get('request')
+        viewer = request.user if request else None
+        return Friendship.estado_entre(viewer, obj)
+
+
 # --- Amigos -----------------------------------------------------------------
 
 class FriendshipSerializer(serializers.ModelSerializer):

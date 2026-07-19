@@ -14,6 +14,7 @@ import {
 } from '@mantine/core';
 import {
   IconListDetails,
+  IconPlus,
   IconTrophyFilled,
   IconUserCheck,
   IconUserPlus,
@@ -28,8 +29,14 @@ import { StatusBadge } from '../../components/StatusBadge';
 import { useAuth } from '../../auth/AuthContext';
 import type { UserGamePublic } from '../../types';
 
-function GamesGrid({ jogos }: { jogos: UserGamePublic[] }) {
-  if (jogos.length === 0) return <EmptyState title="Nada por aqui ainda." />;
+function GamesGrid({
+  jogos,
+  emptyAction,
+}: {
+  jogos: UserGamePublic[];
+  emptyAction?: React.ReactNode;
+}) {
+  if (jogos.length === 0) return <EmptyState title="Nada por aqui ainda." action={emptyAction} />;
   return (
     <SimpleGrid cols={{ base: 2, sm: 3, md: 5 }}>
       {jogos.map((ug) => (
@@ -136,6 +143,10 @@ export function ProfilePage() {
     }
   }
 
+  // Só o dono do perfil vê os atalhos de "adicionar": ninguém mexe na
+  // biblioteca/listas alheias, então nesses casos o estado vazio fica sem botão.
+  const isMe = profile.amizade === 'eu';
+
   return (
     <Stack gap="lg">
       <Card withBorder radius="md" p="lg">
@@ -176,12 +187,30 @@ export function ProfilePage() {
         </Tabs.List>
 
         <Tabs.Panel value="jogos" pt="md">
-          <GamesGrid jogos={profile.jogos} />
+          <GamesGrid
+            jogos={profile.jogos}
+            emptyAction={
+              isMe ? (
+                <Button component={Link} to="/games" leftSection={<IconPlus size={16} />}>
+                  Adicionar jogo
+                </Button>
+              ) : undefined
+            }
+          />
         </Tabs.Panel>
 
         <Tabs.Panel value="listas" pt="md">
           {profile.listas_publicas.length === 0 ? (
-            <EmptyState title="Nenhuma lista pública." />
+            <EmptyState
+              title="Nenhuma lista pública."
+              action={
+                isMe ? (
+                  <Button component={Link} to="/lists" leftSection={<IconPlus size={16} />}>
+                    Criar uma lista
+                  </Button>
+                ) : undefined
+              }
+            />
           ) : (
             <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }}>
               {profile.listas_publicas.map((l) => (

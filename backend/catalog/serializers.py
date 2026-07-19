@@ -59,8 +59,9 @@ class GameSerializer(serializers.ModelSerializer):
         model = Game
         fields = (
             'id', 'titulo', 'capa_url', 'banner_url',
-            'capa_vertical_url', 'banner_hero_url', 'ano_lancamento', 'sinopse',
-            'status_publicacao', 'steam_appid',
+            'capa_vertical_url', 'banner_hero_url', 'ano_lancamento',
+            'data_lancamento', 'sinopse',
+            'status_publicacao', 'steam_appid', 'rawg_id',
             'genres', 'platforms', 'developers', 'publishers',
             'genre_ids', 'platform_ids', 'developer_ids', 'publisher_ids',
             'created_at', 'updated_at',

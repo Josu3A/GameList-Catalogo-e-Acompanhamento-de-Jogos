@@ -1,7 +1,10 @@
 # GameList — Backend (Django + DRF)
 
-API REST do GameList com Django 5.2 LTS, Django REST Framework e PostgreSQL.
-O **Django Admin** (`/admin/`) é o painel do administrador para o CRUD do catálogo.
+API REST do GameList com Django 5.2 LTS, Django REST Framework e PostgreSQL. O **Django Admin**
+(`/admin/`) é o painel do administrador para o CRUD do catálogo.
+
+> A forma mais simples de subir tudo é com **Docker** — veja o [README da raiz](../README.md).
+> As instruções abaixo são para rodar o backend direto na máquina.
 
 ## Setup
 
@@ -14,14 +17,12 @@ python -m venv .venv
 
 # configuração de ambiente
 copy .env.example .env    # e preencha DB_PASSWORD (e demais valores se necessário)
-# Para a integração Steam: preencha STEAM_API_KEY (https://steamcommunity.com/dev/apikey)
-# e FRONTEND_URL. Login OpenID e autofill da loja funcionam sem a chave; sync de
-# biblioteca/conquistas e nome/avatar do perfil exigem a chave.
+# Steam (opcional): STEAM_API_KEY + FRONTEND_URL habilitam sync de biblioteca/conquistas.
 
 # criar o banco (uma vez)
 psql -h localhost -p 5433 -U postgres -c "CREATE DATABASE gamelist;"
 
-# estrutura + seed (3 usuários demo + catálogo dos 100 jogos famosos da Steam)
+# estrutura + seed (3 usuários demo + os 100 jogos famosos da Steam, offline)
 .venv\Scripts\python manage.py migrate
 .venv\Scripts\python manage.py seed_demo
 
@@ -31,38 +32,18 @@ psql -h localhost -p 5433 -U postgres -c "CREATE DATABASE gamelist;"
 
 Testes: `.venv\Scripts\python manage.py test`
 
-## Carregar o catálogo (100 jogos famosos da Steam)
+## Usuários de demonstração (senha `senha123`)
 
-Não há nada a configurar em `settings.py`: o catálogo vem de um **snapshot versionado**
-(`catalog/data/steam_top_games.json`) lido direto pelo app `catalog`. "Carregar" é só rodar
-um comando — todos são **idempotentes** (casam por `steam_appid`, podem rodar de novo):
-
-```powershell
-# forma padrão: já embutido no seed (usuários demo + os 100 jogos, offline, sem rede)
-.venv\Scripts\python manage.py seed_demo
-
-# só o catálogo (sem os usuários/listas de demonstração), do snapshot offline
-.venv\Scripts\python manage.py seed_steam_top --offline
-
-# opcional: buscar/atualizar os 100 direto da Steam (online, ~2 min) e refazer o snapshot
-.venv\Scripts\python manage.py seed_steam_top            # cria/pula
-.venv\Scripts\python manage.py seed_steam_top --update   # atualiza os existentes
-```
-
-Ou seja, num ambiente novo o catálogo entra sozinho no passo `seed_demo` do Setup acima.
-
-## Usuários de demonstração (seed_demo)
-
-| E-mail | Papel | Senha |
-|---|---|---|
-| admin@gamelist.dev | admin | senha123 |
-| ana@gamelist.dev | comum | senha123 |
-| bruno@gamelist.dev | comum | senha123 |
+| E-mail | Papel |
+|---|---|
+| admin@gamelist.dev | admin |
+| ana@gamelist.dev | comum |
+| bruno@gamelist.dev | comum |
 
 ## Endpoints
 
-Autenticação por **sessão + cookies**. Para POST/PATCH/DELETE, obtenha o cookie
-`csrftoken` em `GET /api/auth/csrf/` e envie o header `X-CSRFToken`.
+Autenticação por **sessão + cookies**. Para POST/PATCH/DELETE, obtenha o cookie `csrftoken`
+em `GET /api/auth/csrf/` e envie o header `X-CSRFToken`.
 
 | Rota | Métodos | Acesso |
 |---|---|---|
@@ -80,18 +61,29 @@ Autenticação por **sessão + cookies**. Para POST/PATCH/DELETE, obtenha o cook
 | `/api/profiles/<user_id>/` | GET | público (404 se o perfil for privado) |
 | `/admin/` | — | painel do administrador (Django Admin) |
 
-Filtros úteis: `/api/games/?search=hades`, `?genero=<id>`, `?plataforma=<id>`,
-`?ano=2022`; `/api/my-games/?status=jogando`, `?platinado=true`.
+Filtros úteis: `/api/games/?search=hades`, `?genero=<id>`, `?plataforma=<id>`, `?ano=2022`;
+`/api/my-games/?status=jogando`, `?platinado=true`.
+
+## Catálogo (100 jogos da Steam)
+
+O catálogo vem de um **snapshot versionado** (`catalog/data/steam_top_games.json`) lido pelo app
+`catalog` — nada a configurar. Já entra no `seed_demo`; comandos idempotentes (casam por
+`steam_appid`):
+
+```powershell
+.venv\Scripts\python manage.py seed_steam_top --offline   # só o catálogo, do snapshot, sem rede
+.venv\Scripts\python manage.py seed_steam_top             # (online) busca/atualiza pela Steam
+.venv\Scripts\python manage.py seed_steam_top --update    # atualiza os existentes e refaz o snapshot
+```
 
 ## Estrutura
 
 - `config/` — settings (lê `.env`), rotas raiz
 - `accounts/` — modelo `User` customizado (tabela `users`), auth por sessão, permissões de papel
-- `catalog/` — `Game` + taxonomias normalizadas (gêneros, plataformas, devs, publishers) e
-  `Achievement`; comando `seed_steam_top` + snapshot `data/steam_top_games.json` (100 jogos)
-- `library/` — `UserGame` (lista pessoal), perfil público, comando `seed_demo`
-- `social/` — modelos das extensões futuras (amizades, curtidas, listas, notificações) — **sem endpoints**
+- `catalog/` — `Game` + taxonomias (gêneros, plataformas, devs, publishers), `Achievement`,
+  `seed_steam_top` + snapshot dos 100 jogos, integração Steam (autofill)
+- `library/` — `UserGame` (lista pessoal), perfil público, comando `seed_demo`, sync Steam
+- `social/` — amigos, reviews/curtidas, listas customizadas e notificações
 
-O esquema de referência continua documentado em `../ESQUEMA_DADOS.md` e
-`../db/schema.sql`; a fonte da verdade do schema agora são as **migrações Django**
-(divergências pontuais documentadas no LOG.md da raiz).
+Esquema de referência em `../ESQUEMA_DADOS.md` e `../db/schema.sql`; a fonte da verdade do schema
+são as **migrações Django**.

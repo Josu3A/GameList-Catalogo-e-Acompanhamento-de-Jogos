@@ -34,14 +34,32 @@ export interface SteamPreview {
   titulo: string;
   sinopse: string;
   ano_lancamento: number | null;
+  /** Data precisa de lançamento (ISO), quando a RAWG casa por título. */
+  data_lancamento: string | null;
   banner_url: string | null;
   capa_url: string | null;
   steam_appid: number;
+  /** Id da RAWG, quando casa por título; null se não achou. */
+  rawg_id: number | null;
   genres: NamedRef[];
   platforms: NamedRef[];
   developers: NamedRef[];
   publishers: NamedRef[];
   existing_game_id: number | null;
+}
+
+// --- Integração RAWG --------------------------------------------------------
+
+/** Item do carrossel de próximos lançamentos (GET /api/games/proximos-lancamentos/). */
+export interface ProximoLancamento {
+  rawg_id: number;
+  nome: string;
+  /** Data ISO (YYYY-MM-DD). */
+  data_lancamento: string;
+  capa_url: string | null;
+  plataformas: string[];
+  /** Id do Game local, quando casado com o catálogo; null se só informativo. */
+  game_id: number | null;
 }
 
 /** Resumo do sync de biblioteca (POST /api/my-games/steam-sync/). */
@@ -71,9 +89,13 @@ export interface Game {
   /** Fundo largo (biblioteca Steam) derivado do appid; usa como padrão. */
   banner_hero_url: string | null;
   ano_lancamento: number | null;
+  /** Data precisa de lançamento (ISO), quando conhecida (RAWG ou manual). */
+  data_lancamento: string | null;
   sinopse: string | null;
   status_publicacao: StatusPublicacao;
   steam_appid: number | null;
+  /** Id da RAWG, usado como chave de casamento/backfill. */
+  rawg_id: number | null;
   genres: NamedRef[];
   platforms: NamedRef[];
   developers: NamedRef[];
@@ -137,6 +159,11 @@ export interface UserSummary {
   id: number;
   nome: string;
   avatar_url: string | null;
+}
+
+/** Resultado da busca de usuários: resumo + estado da amizade com quem busca. */
+export interface UserSearchResult extends UserSummary {
+  amizade: EstadoAmizade;
 }
 
 export interface ListSummary {

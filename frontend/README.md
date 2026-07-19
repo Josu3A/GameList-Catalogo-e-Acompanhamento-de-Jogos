@@ -1,15 +1,15 @@
-# GameList — Frontend (React + Vite + TypeScript)
+# GameCheck — Frontend (React + Vite + TypeScript)
 
-SPA que consome a API DRF do backend ([../backend/](../backend/)). Tema escuro com
-**Mantine**, estado de servidor com **TanStack Query**, roteamento com **react-router**.
+SPA que consome a API DRF do backend ([../backend/](../backend/)). Tema escuro com **Mantine**,
+estado de servidor com **TanStack Query**, roteamento com **react-router**.
 
-## Pré-requisitos
-
-- Node 18+ (testado com Node 24) e npm.
-- O **backend rodando** em `http://localhost:8000` (`python manage.py runserver`),
-  apontando para o PostgreSQL do projeto (porta 5433) já populado com `seed_demo`.
+> A forma mais simples de subir tudo é com **Docker** — veja o [README da raiz](../README.md).
+> As instruções abaixo são para rodar o frontend direto na máquina.
 
 ## Como rodar
+
+Pré-requisitos: **Node 18+** e npm, com o **backend rodando** em `http://localhost:8000`
+(ver [../backend/README.md](../backend/README.md)).
 
 ```bash
 npm install
@@ -22,18 +22,12 @@ Variável de ambiente (arquivo `.env`, já incluído):
 VITE_API_BASE_URL=http://localhost:8000
 ```
 
-A origem `http://localhost:5173` já está liberada no `CORS_ALLOWED_ORIGINS`/
-`CSRF_TRUSTED_ORIGINS` do backend. Autenticação é por **sessão + cookie**; o cliente
-busca o cookie CSRF (`GET /api/auth/csrf/`) e envia `X-CSRFToken` nas mutações
-(ver [src/api/client.ts](src/api/client.ts)).
+A origem `http://localhost:5173` já está liberada no CORS/CSRF do backend. Autenticação é por
+**sessão + cookie**: o cliente busca o cookie CSRF (`GET /api/auth/csrf/`) e envia `X-CSRFToken`
+nas mutações (ver [src/api/client.ts](src/api/client.ts)).
 
-### Usuários de demonstração (senha `senha123`)
-
-| E-mail | Papel |
-|---|---|
-| `admin@gamelist.dev` | admin (vê `/admin/*`) |
-| `ana@gamelist.dev` | comum (tem platina + reviews) |
-| `bruno@gamelist.dev` | comum |
+Usuários de demonstração (senha `senha123`): `admin@gamelist.dev` (admin), `ana@gamelist.dev`,
+`bruno@gamelist.dev`.
 
 ## Scripts
 
@@ -52,22 +46,9 @@ src/
   lib/         labels.ts (rótulos de status, textos de notificação, datas)
   pages/       auth/ catalog/ library/ profile/ admin/ social/
   types/       interfaces TS espelhando os serializers do backend
-  theme.ts     tema Mantine (escuro; cores/tipografia a definir)
+  theme.ts     tema Mantine (escuro, paleta violeta→azul da logo)
   App.tsx      rotas
   main.tsx     providers (Mantine + QueryClient + Router + Auth)
 ```
 
-## Telas
-
-MVP: catálogo (busca/filtros/paginação), detalhe do jogo, lista pessoal, perfil público
-(com platinas), editar perfil, login/registro. Admin (React): CRUD de jogos (trata **409**
-ao excluir jogo em listas) e das taxonomias. Social: amigos, notificações (com badge),
-listas customizadas e reviews com curtir. Mapa completo em
-[../FRONTEND_TELAS.md](../FRONTEND_TELAS.md).
-
-## Notas
-
-- Troca de e-mail/senha (`/settings/account`) não tem endpoint dedicado — fica no Django
-  Admin por enquanto.
-- O bundle de produção é único (~660 kB) — aceitável para o escopo acadêmico; dá para
-  aplicar code-splitting por rota depois, se necessário.
+Mapa completo das telas em [../FRONTEND_TELAS.md](../FRONTEND_TELAS.md).

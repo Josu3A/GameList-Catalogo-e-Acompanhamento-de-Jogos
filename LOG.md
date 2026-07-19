@@ -5,7 +5,166 @@
 
 ---
 
-## 2026-07-13 — 100 jogos famosos da Steam no catálogo + migração para o seed (offline)
+## Rebrand "GameCheck": logo tratada, nome, paleta e fundo do app
+
+### Objetivo
+
+Rebatizar o produto de **GameList** para **GameCheck** e aplicar a **logo nova** (entregue como
+um app icon 1254×1254 com fundo preto). Pedidos, em ordem: **deixar a logo usável** (remover o
+fundo), **renomear a imagem**, **alinhar as cores do tema** à logo e **mudar o fundo do app**
+para casar com ela.
+
+### O que mudou (só frontend)
+
+- **Logo tratada** (fundo removido, transparência real) — a arte é um "G" formado por um gamepad,
+  com gradiente **violeta→azul**, D-pad branco e 4 botões coloridos, sobre um card azul-marinho
+  arredondado que estava emoldurado por preto puro. Separei fundo × arte pelo **valor**
+  `V=max(R,G,B)` (o preto externo é `0`, o card ~`28`, a arte é clara/saturada):
+  - `../gamecheck-logo.png` (raiz do workspace, **renomeando** o `ChatGPT_Image_*.png` original,
+    que foi apagado) — master em alta, só o glyph sobre transparência.
+  - [frontend/public/logo.png](frontend/public/logo.png) — glyph limpo 512px, usado na navbar.
+  - [favicon.png](frontend/public/favicon.png) (64), [apple-touch-icon.png](frontend/public/apple-touch-icon.png)
+    (180) e [icon-512.png](frontend/public/icon-512.png) — **ícone de app reconstruído**: o recorte
+    direto do card trazia um "halo" cinza (brilho radial do original), então recompus o glyph limpo
+    sobre um card com gradiente (`#16172E`→`#0A0B1B`) e cantos arredondados (~22,5%).
+- **Nome GameList → GameCheck** — [Navbar.tsx](frontend/src/components/Navbar.tsx) (ícone genérico
+  `IconDeviceGamepad2` → `<img src="/logo.png">` + texto "GameCheck"); título e favicons em
+  [index.html](frontend/index.html); H1 do [frontend/README.md](frontend/README.md). (Nome do
+  pacote/pasta/repo `GameList` **não** mudou — só a marca visível.)
+- **Cores da marca** em [theme.ts](frontend/src/theme.ts) — paleta **`brand`** (10 tons) derivada
+  do gradiente violeta `#7137F3`→azul `#1584FD` do "G", como `primaryColor` (`primaryShade`
+  `{ light: 6, dark: 6 }`); `defaultGradient` `#7137F3`→`#1584FD` (135°) espelhando o "G"→seta.
+- **Fundo do app** — a escala **`dark`** do Mantine foi **retintada para azul-marinho**, casando
+  com o card da logo, **mantendo a mesma luminância** do padrão (contraste do texto preservado):
+  fundo da página `dark[7]=#111327` (antes o cinza `#1A1B1E`), superfícies/cards `dark[6]=#1A1D36`,
+  tom mais profundo `dark[9]=#090B1A`.
+
+### Decisões conscientes
+
+| Decisão | Escolha | Motivo |
+|---|---|---|
+| Remover o fundo | **glyph transparente** como logo principal + **tile reconstruído** para favicon | glyph integra na navbar/fundo escuro; o tile do recorte cru ficava com halo cinza — reconstruir dá um ícone nítido |
+| Separação fundo × arte | limiar sobre o **valor** `max(R,G,B)` (não por cor) | preto (`0`) e card navy (`~28`) são escuros; a arte é clara/saturada — o valor separa com borda suave, sem chave de croma |
+| Onde guardar assets web | `frontend/public/` (servido na raiz pelo Vite) | `/logo.png`, `/favicon.png` etc. sem import/bundle; simples de referenciar no `index.html`/JSX |
+| Fundo do app | **retintar a escala `dark`** (mesma L, hue navy) em vez de CSS global | é o caminho idiomático do Mantine v7; preserva contraste e cobre header/cards/dropdowns de uma vez |
+| Escopo do "nome" | trocar só a **marca visível**, não pacote/pasta/repo | evita quebrar imports, scripts e histórico do git por uma mudança cosmética |
+
+### Verificação executada
+
+1. **Tipos:** `tsc --noEmit` → **sem erros** (após a remoção do ícone antigo, o tema tipado com
+   `MantineColorsTuple` e a retinta do `dark`).
+2. **Inspeção visual dos assets gerados:** glyph transparente limpo (sem halo) e ícone de app
+   nítido com cantos arredondados — conferidos abrindo os PNGs.
+
+### Estado ao final
+
+- Marca **GameCheck** aplicada: logo transparente na navbar, favicon/ícones de app, título da aba,
+  paleta violeta→azul e fundo navy — identidade coesa com a logo.
+- Imagem original renomeada para `gamecheck-logo.png` (master transparente); o `ChatGPT_Image_*.png`
+  foi removido.
+
+---
+
+## Estados vazios com botão de ação (perfil, minha lista, listas)
+
+### Objetivo
+
+As telas com **contadores zerados** (perfil de quem ainda não adicionou jogos/listas, "Minha
+lista" vazia, "Minhas listas" vazia) mostravam só um ícone + um texto ("Nada por aqui ainda.",
+"Nenhuma lista pública.") — becos sem saída, sem indicar o próximo passo. Pedido: **adicionar
+botões de ação** ("adicionar jogo", "criar uma lista" etc.) para as telas vazias convidarem à ação.
+
+### O que mudou (só frontend)
+
+- **Componente compartilhado** [GameCard.tsx](frontend/src/components/GameCard.tsx): o
+  `EmptyState` ganhou uma prop opcional **`action`** (`React.ReactNode`), renderizada abaixo do
+  texto num `Group` centralizado. Sem `action`, o visual continua idêntico ao anterior.
+- **Perfil** [ProfilePage.tsx](frontend/src/pages/profile/ProfilePage.tsx) (a tela da imagem):
+  no **próprio perfil** (`amizade === 'eu'`), a aba **Jogos** vazia mostra **"Adicionar jogo"**
+  (→ `/games`) e a aba **Listas** vazia mostra **"Criar uma lista"** (→ `/lists`). `GamesGrid`
+  recebeu um `emptyAction` opcional para carregar o botão só na aba de jogos (a seção de platinas
+  reusa o mesmo grid e nunca renderiza estado vazio).
+- **Minha lista** [MyListPage.tsx](frontend/src/pages/library/MyListPage.tsx): estado vazio ganhou
+  **"Explorar catálogo"** (→ `/games`), reforçando a dica que já estava no texto.
+- **Minhas listas** [ListsPage.tsx](frontend/src/pages/social/ListsPage.tsx): estado vazio ganhou
+  **"Criar lista"** (abre o modal de nova lista). Para **não duplicar** o botão, o "Nova lista" do
+  topo passou a aparecer **só quando já existem listas** — vazio mostra só o CTA centralizado.
+
+### Decisões conscientes
+
+| Decisão | Escolha | Motivo |
+|---|---|---|
+| Só o dono vê os atalhos | perfil alheio vazio segue **sem** botão (`isMe = amizade === 'eu'`) | ninguém adiciona jogo/lista na biblioteca de outra pessoa — o botão só faz sentido no próprio perfil |
+| "Adicionar jogo" → catálogo | leva a `/games`, não a `/my-list` | é dali que se adiciona à lista (via detalhe do jogo); mesma dica do estado vazio de "Minha lista" |
+| Onde colocar o botão | prop `action` no `EmptyState` já existente | um único ponto para todos os estados vazios, sem duplicar layout; retrocompatível (prop opcional) |
+
+### Verificação executada
+
+1. **Tipos:** `tsc --noEmit` → **sem erros**.
+
+### Estado ao final
+
+- Telas vazias de perfil (próprio), "Minha lista" e "Minhas listas" agora trazem um botão que
+  leva ao próximo passo; perfil de terceiros vazio permanece só informativo.
+
+---
+
+## Adicionar amigo (busca de usuários por nome) + filtro na lista de amigos
+
+### Objetivo
+
+A tela de Amigos ([/friends](frontend/src/pages/social/FriendsPage.tsx)) só listava amizades e
+pedidos — não havia como **encontrar alguém para adicionar**. Faltava um endpoint para buscar
+usuários. Adicionar um botão que abre a busca e dispara o pedido de amizade e, separadamente, um
+**filtro por nome** sobre os amigos já adicionados (busca ≠ filtro: o botão *adiciona* gente nova;
+o filtro *procura* dentro de quem você já tem).
+
+### O que mudou
+
+- **Backend (`social/`)** — novo endpoint **`GET /api/users/search/?q=`** para achar usuários e
+  enviar pedido de amizade:
+  - [views.py](backend/social/views.py): `UserSearchView` (`ListAPIView`, exige autenticação).
+    Filtra **por nome** (`nome__icontains`), só **perfis públicos** (perfil privado não é
+    descoberto, como no `ProfileView`) e nunca inclui o próprio usuário; termo com menos de 2
+    caracteres devolve vazio.
+  - [serializers.py](backend/social/serializers.py): `UserSearchSerializer` estende o
+    `UserSummarySerializer` e acrescenta `amizade` (via `Friendship.estado_entre`), para o botão
+    escolher entre *Adicionar* / *Pedido enviado* / *Pedido recebido* / *Amigos*.
+  - [urls.py](backend/social/urls.py): rota `users/search/` registrada antes do router.
+- **Frontend** — [FriendsPage.tsx](frontend/src/pages/social/FriendsPage.tsx): botão
+  **"Adicionar amigo"** no topo abre um modal com busca (debounce 300 ms) que lista os resultados;
+  cada linha mostra *Adicionar* (reusa `sendFriendRequest`) ou um selo conforme o estado da amizade.
+  Na aba **Amigos**, campo **"Filtrar amigos por nome"** filtra a lista localmente (as abas de
+  pedidos não recebem filtro). Extraí um `renderRow` para acomodar o filtro sem aninhar o JSX.
+  [api/social.ts](frontend/src/api/social.ts): `searchUsers`; [types/index.ts](frontend/src/types/index.ts):
+  `UserSearchResult` (`UserSummary` + `amizade`).
+
+### Decisões conscientes
+
+| Decisão | Escolha | Motivo |
+|---|---|---|
+| Só nome (sem e-mail) | busca por `nome__icontains` apenas | pedido do grupo; e-mail não é identificador público — a resposta nunca expõe e-mail (só `id`/`nome`/`avatar_url`/`amizade`) |
+| Descoberta | só **perfis públicos**, exclui a si mesmo | mesma privacidade do `ProfileView` (perfil privado nem revela existência) |
+| Botão × filtro | botão **adiciona** (busca no servidor); filtro **procura nos já adicionados** (client-side) | separa os dois fluxos que a UI antes confundia num só "buscar amigos" |
+| Estado no resultado | `amizade` em cada item da busca | o botão decide entre adicionar/aguardar sem uma segunda chamada |
+
+### Verificação executada
+
+1. **Backend:** `manage.py test social` → **31/31 OK** (26 anteriores + 5 novos em
+   `BuscaAmigosTests`: exige autenticação; ignora a si mesmo e perfis privados; traz o estado da
+   amizade; termo curto vazio; e-mail **não** encontra ninguém). `manage.py check` sem erros.
+2. **Frontend:** `tsc --noEmit` → **sem erros**.
+
+### Estado ao final
+
+- Tela de Amigos com "Adicionar amigo" (busca por nome + pedido) e filtro por nome na aba Amigos.
+- Pendente/decisão do grupo: o filtro é **client-side** sobre a página atual (amizades vêm
+  paginadas em 20, e a aba não pagina) — se alguém passar de 20 amigos, o filtro só alcança os 20
+  primeiros; tratar com busca no servidor fica como evolução.
+
+---
+
+## 100 jogos famosos da Steam no catálogo + migração para o seed (offline)
 
 ### Objetivo
 
@@ -74,7 +233,7 @@ processo/worker, exige o banco pronto e dá corrida; o idiomático é o comando 
 
 ---
 
-## 2026-07-13 — Avatar por upload na edição de perfil (arquivo, não URL)
+## Avatar por upload na edição de perfil (arquivo, não URL)
 
 ### Objetivo
 
@@ -128,12 +287,10 @@ arquivo**, com limites. O backend guarda só o **caminho** do arquivo no banco; 
 ### Estado ao final
 
 - Edição de perfil sobe o avatar por arquivo; o banco guarda o caminho, a UI mostra a foto.
-- Pendente (manual): passada de QA no navegador (escolher/pré-visualizar/remover foto e ver o
-  avatar novo na navbar/perfil).
 
 ---
 
-## 2026-07-13 — Capas verticais da biblioteca Steam (catálogo, detalhe e fundo do topo)
+## Capas verticais da biblioteca Steam (catálogo, detalhe e fundo do topo)
 
 ### Objetivo
 
@@ -190,7 +347,7 @@ usá-las por padrão no catálogo, no detalhe **e** no fundo do topo.
 
 ---
 
-## 2026-07-13 — Integração com a Steam (login/vínculo, autofill do catálogo, sync de biblioteca e conquistas)
+## Integração com a Steam (login/vínculo, autofill do catálogo, sync de biblioteca e conquistas)
 
 ### Objetivo
 
@@ -249,14 +406,12 @@ existiam e estavam migrados); **nenhuma migração de schema foi necessária**.
 ### Estado ao final
 
 - Login/vínculo Steam, autofill do catálogo e sync de biblioteca/conquistas funcionais.
-- Pendente (manual): passada de QA no navegador com login OpenID real da Steam (fluxo que
-  exige interação humana com a Steam) e um perfil Steam próprio público para o sync.
 - O casamento de jogos é sempre por `steam_appid`; jogos possuídos fora do catálogo são
   ignorados no sync (contados na resposta) — um "importar da Steam" desses fica como evolução.
 
 ---
 
-## 2026-07-11 — Máscara do id do usuário na URL do perfil
+## Máscara do id do usuário na URL do perfil
 
 ### Objetivo
 
@@ -289,7 +444,6 @@ não aparece em nenhum lugar visível do frontend.
 1. **Tipos:** `tsc --noEmit` → **sem erros**.
 2. **`slugifyNome` (Node):** `"Roberto Marques"→roberto-marques`, `"João da Silva"→
    joao-da-silva`, `"Ana_Clara 99"→ana-clara-99`, `""→usuario`, `" ---"→usuario`.
-3. **Não executado:** passada clicando pela UI no navegador (fica para QA manual).
 
 ### Estado ao final
 
@@ -299,7 +453,7 @@ não aparece em nenhum lugar visível do frontend.
 
 ---
 
-## 2026-07-11 — Frontend React (SPA completa: MVP + admin + social)
+## Frontend React (SPA completa: MVP + admin + social)
 
 ### Objetivo
 
@@ -354,14 +508,12 @@ as telas sociais (agora funcionais, já que os endpoints existem).
 
 - Frontend funcional em [frontend/](frontend/) (instruções no
   [frontend/README.md](frontend/README.md)); backend com o `PATCH /me` adicionado.
-- Pendente (manual): passada de QA clicando pela UI no navegador; ajuste fino de
-  cores/tipografia do tema (deixado para depois por decisão do grupo).
-- Próximos passos sugeridos: QA visual, e depois as extensões (integração Steam) sobre a
-  base já pronta.
+- Pendente/decisão do grupo: ajuste fino de cores/tipografia do tema (deixado para depois).
+- Próximos passos sugeridos: as extensões (integração Steam) sobre a base já pronta.
 
 ---
 
-## 2026-07-11 — Backend social (endpoints da extensão de rede social)
+## Backend social (endpoints da extensão de rede social)
 
 ### Objetivo
 
@@ -423,7 +575,7 @@ enriquecer o perfil público. Nenhuma mudança de schema/migração — só a ca
 
 ---
 
-## 2026-07-10 — Backend Django + DRF (MVP completo)
+## Backend Django + DRF (MVP completo)
 
 ### Objetivo
 
@@ -496,7 +648,7 @@ pessoal restrito ao dono e perfil público com destaque de platinas.
 
 ---
 
-## 2026-07-10 — Criação do banco de dados PostgreSQL
+## Criação do banco de dados PostgreSQL
 
 ### Objetivo
 

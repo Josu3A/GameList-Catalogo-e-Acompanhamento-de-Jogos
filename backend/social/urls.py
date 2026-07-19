@@ -10,5 +10,6 @@ router.register('lists', views.ListViewSet, basename='list')
 router.register('notifications', views.NotificationViewSet, basename='notification')
 
 urlpatterns = [
+    path('users/search/', views.UserSearchView.as_view(), name='user-search'),
     path('', include(router.urls)),
 ]

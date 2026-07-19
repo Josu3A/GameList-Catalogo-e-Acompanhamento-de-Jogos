@@ -80,9 +80,13 @@ export function ListsPage() {
     <Stack gap="lg">
       <Group justify="space-between">
         <Title order={2}>Minhas listas</Title>
-        <Button leftSection={<IconPlus size={16} />} onClick={modal.open}>
-          Nova lista
-        </Button>
+        {/* Com a lista vazia, o CTA fica no próprio estado vazio (abaixo) para não
+            duplicar o botão; o do topo só aparece quando já há listas para somar. */}
+        {lists.length > 0 && (
+          <Button leftSection={<IconPlus size={16} />} onClick={modal.open}>
+            Nova lista
+          </Button>
+        )}
       </Group>
 
       {isLoading ? (
@@ -91,6 +95,11 @@ export function ListsPage() {
         <EmptyState
           title="Você ainda não criou listas"
           description="Crie coleções como “Top 10 RPGs” e adicione jogos do catálogo."
+          action={
+            <Button leftSection={<IconPlus size={16} />} onClick={modal.open}>
+              Criar lista
+            </Button>
+          }
         />
       ) : (
         <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }}>

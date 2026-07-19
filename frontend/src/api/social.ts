@@ -6,6 +6,7 @@ import type {
   Notification,
   Paginated,
   Review,
+  UserSearchResult,
 } from '../types';
 
 // --- Amigos -----------------------------------------------------------------
@@ -15,6 +16,13 @@ export type EstadoFiltro = 'amigos' | 'recebidos' | 'enviados';
 export async function listFriendships(estado: EstadoFiltro): Promise<Paginated<Friendship>> {
   const { data } = await api.get<Paginated<Friendship>>('/api/friendships/', {
     params: { estado },
+  });
+  return data;
+}
+
+export async function searchUsers(q: string): Promise<Paginated<UserSearchResult>> {
+  const { data } = await api.get<Paginated<UserSearchResult>>('/api/users/search/', {
+    params: { q },
   });
   return data;
 }

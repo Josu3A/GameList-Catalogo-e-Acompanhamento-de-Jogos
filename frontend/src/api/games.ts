@@ -1,5 +1,12 @@
 import { api, ensureCsrf } from './client';
-import type { Game, NamedRef, Paginated, StatusPublicacao, SteamPreview } from '../types';
+import type {
+  Game,
+  NamedRef,
+  Paginated,
+  ProximoLancamento,
+  StatusPublicacao,
+  SteamPreview,
+} from '../types';
 
 export interface GameQuery {
   search?: string;
@@ -30,9 +37,11 @@ export interface GameWritePayload {
   capa_url?: string | null;
   banner_url?: string | null;
   ano_lancamento?: number | null;
+  data_lancamento?: string | null;
   sinopse?: string | null;
   status_publicacao: StatusPublicacao;
   steam_appid?: number | null;
+  rawg_id?: number | null;
   genre_ids: number[];
   platform_ids: number[];
   developer_ids: number[];
@@ -61,6 +70,13 @@ export async function deleteGame(id: number): Promise<void> {
 export async function steamPreview(appid: number): Promise<SteamPreview> {
   await ensureCsrf();
   const { data } = await api.post<SteamPreview>('/api/games/steam-preview/', { appid });
+  return data;
+}
+
+/** Carrossel de "Próximos Lançamentos" da Home — feed ao vivo da RAWG, cacheado
+ * no backend e casado com o catálogo local (game_id) a cada request. */
+export async function getProximosLancamentos(): Promise<ProximoLancamento[]> {
+  const { data } = await api.get<ProximoLancamento[]>('/api/games/proximos-lancamentos/');
   return data;
 }
 

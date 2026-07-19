@@ -5,7 +5,7 @@ from .models import Achievement, Developer, Game, Genre, Platform, Publisher
 
 @admin.register(Game)
 class GameAdmin(admin.ModelAdmin):
-    list_display = ('titulo', 'ano_lancamento', 'status_publicacao', 'steam_appid')
+    list_display = ('titulo', 'ano_lancamento', 'data_lancamento', 'status_publicacao', 'steam_appid')
     list_filter = ('status_publicacao', 'genres', 'platforms')
     search_fields = ('titulo',)
     filter_horizontal = ('genres', 'platforms', 'developers', 'publishers')

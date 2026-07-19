@@ -19,6 +19,8 @@ import { useDisclosure } from '@mantine/hooks';
 import { notifications } from '@mantine/notifications';
 import { IconBrandSteam, IconPlus, IconTrophy } from '@tabler/icons-react';
 import { useQuery } from '@tanstack/react-query';
+import dayjs from 'dayjs';
+import 'dayjs/locale/pt-br';
 import { getGame } from '../../api/games';
 import { steamAchievements } from '../../api/library';
 import { listReviews } from '../../api/social';
@@ -28,6 +30,14 @@ import { UserGameFormModal } from '../../components/UserGameFormModal';
 import { ReviewCard } from '../../components/ReviewCard';
 import { EmptyState } from '../../components/GameCard';
 import type { SteamAchievementsResult } from '../../types';
+
+dayjs.locale('pt-br');
+
+/** Data precisa da RAWG quando tiver; senão cai pro ano vindo da Steam. */
+function formatarLancamento(dataLancamento: string | null, anoLancamento: number | null) {
+  if (dataLancamento) return dayjs(dataLancamento).format('D [de] MMMM [de] YYYY');
+  return anoLancamento ? String(anoLancamento) : null;
+}
 
 function TagList({ label, items }: { label: string; items: { id: number; nome: string }[] }) {
   if (items.length === 0) return null;
@@ -119,8 +129,10 @@ export function GameDetailPage() {
             <Group justify="space-between" align="flex-start">
               <div>
                 <Title order={2}>{game.titulo}</Title>
-                {game.ano_lancamento && (
-                  <Text c="dimmed">{game.ano_lancamento}</Text>
+                {formatarLancamento(game.data_lancamento, game.ano_lancamento) && (
+                  <Text c="dimmed">
+                    {formatarLancamento(game.data_lancamento, game.ano_lancamento)}
+                  </Text>
                 )}
               </div>
               {game.status_publicacao === 'rascunho' && (
